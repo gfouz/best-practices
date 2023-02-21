@@ -8,9 +8,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   base: "/best-practices/",
   plugins: [react(), tsconfigPaths()],
-  test: {
-    environment: "jsdom"
-  },
   resolve: {
     alias: {
       '/': path.resolve(__dirname, 'src'),
