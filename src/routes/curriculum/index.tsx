@@ -58,8 +58,8 @@ function Curriculum() {
         <IdiomButtonContainer>
           <IdiomButton onClick={ ()=> idiomButtonClick()}>
            { idiom ? <SpanishFlag /> : <UnitedKindomFlag />}
+           { idiom ? 'Traducir al Español': 'Translate into English'}
           </IdiomButton>
-          <ButtonTag>{ idiom ? 'Traducir al Español': 'Translate into English'}</ButtonTag>
         </IdiomButtonContainer>
         <Subtitle upper bolder mt>
           {idiom  ? 'Overview': 'Resumen'}
@@ -172,10 +172,12 @@ const MainPicture = styled.img.attrs({ src: './images/gfouzcoffee.jpg', alt: 'gf
 const SpanishFlag = styled.img.attrs({ src: './images/spain.jpg', alt:'spainflag'})`
   max-width: 100%;
   height: 30px;
+  margin: 0 5px;
 `;
 const UnitedKindomFlag = styled.img.attrs({ src: './images/uk.jpg', alt: 'ukflag'})`
   max-width: 100%;
   height: 30px;
+  margin: 0 5px;
 `;
 const SummaryList = styled.ol`
   padding: 0 1.5em;
@@ -189,17 +191,22 @@ const IdiomButtonContainer = styled.div`
   padding: 0 0.5em;
 `;
 const IdiomButton = styled.button`
-  height: 30px;
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 50px;
+  padding: 10px;
   border: none;
+  border-radius: 15px;
   outline: none;
+  color: #f1f1f1;
+  background-color: #444444;
+  font-weight: bolder;
   &:hover {
     filter: drop-shadow(0 0 2em #222222);
   }
 `;
-const ButtonTag = styled.h3`
-  font-weight: bolder;
-  margin: 0 1em;
-`;
+
 const DownloadSection = styled.div`
  padding: 1em 0;
  margin: 2em 0 0 0;

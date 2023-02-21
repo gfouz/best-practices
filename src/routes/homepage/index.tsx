@@ -195,7 +195,7 @@ const SelfReminder = styled.div`
   font-family: signika;
 `;
 
-
-
+//npm i -D @vitest/ui
+//https://gfouz.github.io/best-practices/
 //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 
 //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

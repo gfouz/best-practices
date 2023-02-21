@@ -13,16 +13,18 @@ export const resumen: string = `<p>Desarrollador web enfocado en desarrollo fron
 <p><a href="https://gfouz.github.io/next-blog-2023">Blog: https://gfouz.github.io/next-blog-2023</a></p> 
 `
 export const standards: string[] = [
+  'Typescript.',
   'BEM (Block element modifier) as css architecture.',
   'Eslint for writing JavaScript and Typescript consistent code.',
   'Prettier for source code formatting. ',
-  'Typescript.',
+  'Pruebas unitaria: react-testing-library, vitest.'
 ];
 export const normas: string[] = [
+  'Typescript',
   'BEM como arquitectura de css.',
   'Eslint para escribir código consistente.',
   'Prettier para formatear código fuente.',
-  'Typescript'
+  'Test driven development: react-testing-library, vitest.'
   ]
 export const experience: string = `Cuantico: Fullstack with Node Js.
 <p>Calle 253. Esq. 94, No. 9218. La Cumbre,San Miguel del Padrón, La Habana.</p> 
@@ -61,7 +63,7 @@ Back-end: Express and ORM to abstract data bases.
 <p><strong>Projects: </strong><a href="https://github.com/gfouz">https://github.com/gfouz</a></p>`;
 
 export const tecnologias: string = `<p>Tengo dominio utilizando react-query, react-hook-form,
-zustang, valtio, react-router-dom, and for css in js la popular styled-components. Back-end: Express 
+zustang, valtio, react-router-dom, y para css en js la popular styled-components. Back-end: Express 
  and Sequelize to abstract databases.</p>`;
 
 export function fetchPdf( ) {
