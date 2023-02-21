@@ -57,13 +57,13 @@ https://youtube.com/@giovanifouz5033</a></p>
 <p>Conocimientos autodidacta de electrónica y C plus plus.</p>
 `;
 
-export const technologies: string = `I currently use react-query, react-hook-form, zustang, valtio,
+export const technologies: string = `I currently use react-query, react-hook-form, zustand, valtio,
 react-router-dom, and for css in js the popular styled-components.
 Back-end: Express and ORM to abstract data bases.
 <p><strong>Projects: </strong><a href="https://github.com/gfouz">https://github.com/gfouz</a></p>`;
 
 export const tecnologias: string = `<p>Tengo dominio utilizando react-query, react-hook-form,
-zustang, valtio, react-router-dom, y para css en js la popular styled-components. Back-end: Express 
+zustand, valtio, react-router-dom, y para css en js la popular styled-components. Back-end: Express 
  and Sequelize to abstract databases.</p>`;
 
 export function fetchPdf( ) {
