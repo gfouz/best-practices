@@ -10,7 +10,7 @@ import Sidebar from 'components/Sidebar';
 import Button from 'components/Button';
 import { Headline } from 'components/Headline';
 import Typewriter from 'components/Typewriter';
-import ExpandingBar from 'components/ExpandingBar';
+//import ExpandingBar from 'components/ExpandingBar';
 
 import SpyGlass from 'icons/SpyGlass';
 import GitAlt from 'icons/GitAlt';
@@ -18,6 +18,8 @@ import Youtube from 'icons/Youtube';
 
 import { Routes } from '../layout/Routes';
 import { attached_1, attached_2, attached_3, experience } from './constant';
+import { suddenly, moving_headline } from './constant';
+
 
 export default function Homepage() {
   const snap2 = useSnapshot(switcher);
@@ -32,8 +34,12 @@ export default function Homepage() {
       <HomepageMain>
         <PictureContainer>
           <MainPicture />
-          <ExpandingBar />
+          <AnimatedPicture />
+          <AnimatedHeadline>
+            gfouz { new Date().getFullYear()}
+          </AnimatedHeadline>
         </PictureContainer>
+        <DeveloperProfile>
         <Headline size='1.3em' center color='#451a23' bolder spacing='5px' fontfam='signika' p='2em 0 0 0'>
             <Typewriter color='#451a23' text='Fullstack development with NodeJs' />
           </Headline>
@@ -43,6 +49,7 @@ export default function Homepage() {
         <LogoContainer>
           <SpyGlass fontSize='40px' color='#451a23' />
         </LogoContainer>
+        </DeveloperProfile>
         <SecondaryPictureContainer>
           <SecondaryPicture />
         </SecondaryPictureContainer>
@@ -50,6 +57,7 @@ export default function Homepage() {
         <Headline center bolder upper p='2em 0'>
           Technologies
         </Headline>
+        <TechnologiesPicture />
         <Marquee>
           <Headline bolder color='#451a23' spacing='6px' upper fontfam='signika'>
             ReactJS styled-components valtio react-query react-hook-form axios eslint prettier
@@ -138,6 +146,7 @@ const Es6LiteralString = styled.p`
   }
 `;
 const PictureContainer = styled.div`
+ position: relative;
  width: 100%;
  display: flex;
  flex-direction: column;
@@ -153,9 +162,35 @@ const MainPicture = styled.img.attrs({ src: './images/workflow.jpg', alt: 'knigh
   max-width: 100%;
   height: auto;
 `;
-const SecondaryPicture = styled.img.attrs({ src: './images/laptop.jpg', alt: 'second' })`
+const AnimatedPicture = styled.img.attrs({ src: './images/spider.png', alt: 'AnimatedPict'})`
+  max-width: 100px;
+  height: auto;
+  position: absolute;
+  bottom: 2.5em;
+  right: 3.5em;
+  opacity: 0;
+  animation: ${ suddenly } 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+`;
+const AnimatedHeadline = styled.h3`
+  position: absolute;
+  bottom: 1em;
+  right: 4em;
+  color: #ffffff;
+  font-weight: bolder;
+  animation: ${ moving_headline } 1s;
+`;
+const DeveloperProfile = styled.div`
+  z-index: 10;
+`;
+const SecondaryPicture = styled.img.attrs({ src: './images/laptop.jpg', alt: 'laptop' })`
   max-width: 100%;
   height: auto;
+`;
+const TechnologiesPicture = styled.img.attrs({ src: './images/final.jpg', alt: 'final'})`
+ max-width: 100%;
+ height: auto;
 `;
 const ProfileCard = styled.div`
   text-align: left;
@@ -195,7 +230,6 @@ const SelfReminder = styled.div`
   font-family: signika;
 `;
 
-//npm i -D @vitest/ui
-//https://gfouz.github.io/best-practices/
-//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 
-//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
+// git config user.name gfouz
+// git config user.email gfouz1975@gmail.com
+// git config user.password 

@@ -53,49 +53,23 @@ ORM u ODM para bases de datos abstractas como Sequelize o Mongoose. Tengo
 bases de datos diseñadas y resumidas para un sistema que permitirá PKI
 servicios en Cuba. `;
 
-export const growing_height = keyframes`
+export const suddenly: string = keyframes`
   0% {
-    height: 0px;
-  }
-  25% {
-    height: 60px;
-  }
-  75% {
-    height: 60px;
-  }
-  95% {
-    height: 60px;
-  }
-  100% {
-    height: 0px;
-    display: none;
-  }
-`;
-export const growing_weights = keyframes`
-  0% {
-    width: 0px;
-    opacity: 1;
-  }
-  5% {
-    width: 300px;
-    opacity: 1;
-  }
-
-  25% {
-    width: 300px;
-    opacity: 1;
-  }
-
-  75% {
-    width: 300px;
-    opacity: 1;
-  }
-  95% {
-    width: 0px;
-    opacity: 1;
-  }
-  100% {
-    width: 0px;
+    transform: translateX( 100px );
     opacity: 0;
   }
+  100% {
+    transform: translateX( 0 );
+    opacity: 1;
+  }
+`;
+export const moving_headline = keyframes`
+   from {
+    transform: translateY(-300px);
+    opacity: 0;
+   }
+   to {
+    transform: translateY(0);
+    opacity: 1;
+   }
 `;
