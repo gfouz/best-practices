@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 import { RowArranged } from 'components/Containers';
 import { Headline } from 'components/Headline';
-import Suggestions from 'components/Suggestion';
 import WebLink from 'components/Link';
 
 import SpyGlass from 'icons/SpyGlass';
@@ -26,9 +25,6 @@ function Work() {
           <Title color='#999999' size='1.5em' spacing='10px' upper center>
             working from home with
           </Title>
-          <Suggestions tip={tip2}>
-            <img src='./images/nodejs.jpg' alt='nodejs' />
-          </Suggestions>
           <CardContainer>
             {project.map((item, index) => (
               <Card key={index} className={`card ${item.card}`}>

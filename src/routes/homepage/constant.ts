@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { keyframes } from 'styled-components';
-
+import { CSSKeyframes, keyframes, SimpleInterpolation } from 'styled-components';
 
 export const drawerProps: React.CSSProperties = {
   height: '150px',
@@ -10,13 +9,13 @@ export const drawerProps: React.CSSProperties = {
   backgroundSize: '70px',
 };
 
-export const attached_1 = `Hello my name is Giovani, i began learning c++ in 2017 and it was my
+export const attached_1 = `Hello my name is Giovani, i began learning c++ and it was my
 first experience with Arduino boards. But it was a kind of
-hobby until year 2019 that i began studying web programming with a
+hobby because later i began studying web development with a
 better purpose in mind. So that Node js was my pick, i have been
 studying back-end frameworks like Express, and related libraries to
 afford security and functionality, besides very useful concepts to
-reuse logic such as middlewares and i have had experience working with
+reuse logic such as middlewares and i have had practical experience working with
 ORM or ODM to abstract databases such as Sequelize or Mongoose. I have
 designed and abstracted databases for a System that will afford PKI
 services in Cuba. `;
@@ -28,7 +27,7 @@ brings so many advantages. However Technology changes, and it changes
 quickly. I am open-minded to new technologies in order to learn them
 and then also take advantage of them. I currently use react libraries
 such as react-hook-form, react-query, valtio, zustand,
-styled-components and the popular react-router-dom.`;
+styled-components, framer-motion and the popular react-router-dom.`;
 
 export const attached_3 = `Tell me and I will forget, show me and I may
  remenber, involve me and I will understand`;
@@ -52,24 +51,3 @@ reutilizar lógica como middlewares y he tenido experiencia trabajando con
 ORM u ODM para bases de datos abstractas como Sequelize o Mongoose. Tengo
 bases de datos diseñadas y resumidas para un sistema que permitirá PKI
 servicios en Cuba. `;
-
-export const suddenly: string = keyframes`
-  0% {
-    transform: translateX( 100px );
-    opacity: 0;
-  }
-  100% {
-    transform: translateX( 0 );
-    opacity: 1;
-  }
-`;
-export const moving_headline = keyframes`
-   from {
-    transform: translateY(-300px);
-    opacity: 0;
-   }
-   to {
-    transform: translateY(0);
-    opacity: 1;
-   }
-`;

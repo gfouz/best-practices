@@ -10,12 +10,9 @@
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: calibri;
   font-size: 16px;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,8 +22,8 @@
 }
 
 @font-face {
-  font-family: 'signika';
-  src: local('signika'), url('./fonts/signika.ttf') format('truetype');
+  font-family: 'crowden';
+  src: local('crowden'), url('./fonts/crowden.ttf') format('truetype');
   font-weight: bolder;
   font-display: block;
 }
@@ -38,9 +35,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-p {
-  color: #222222;
 }
 button {
   cursor: pointer;
@@ -65,3 +59,20 @@ body {
   animation: ;
   animation-fill-mode: forwards;
 }
+
+/*
+
+@font-face {
+    font-family: 'signika';
+    src: local('signika'), url('./fonts/signika.ttf') format('truetype');
+    font-weight: bolder;
+    font-display: block;
+  }
+@font-face {
+  font-family: 'ironwall';
+  src: local('ironwall'), url('./fonts/ironwall.otf') format('opentype');
+  font-weight: bolder;
+  font-display: block;
+}  
+
+*/  

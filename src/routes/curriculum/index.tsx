@@ -6,44 +6,42 @@ import { Headline } from 'components/Headline';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
 import { OneButton } from 'components/OneButton';
-import { overview, standards, experience, education, technologies, fetchPdf} from './constants';
-import { resumen, normas, experiencia, educacion, tecnologias} from './constants';
+import { overview, standards, experience, education, technologies, fetchPdf } from './constants';
+import { resumen, normas, experiencia, educacion, tecnologias } from './constants';
 
 function Curriculum() {
-  const [active, setActive]= React.useState( false );
-  const [width, setWidth]= React.useState(0);
-  const [idiom, setIdiom]= React.useState( true );
+  const [active, setActive] = React.useState(false);
+  const [width, setWidth] = React.useState(0);
+  const [idiom, setIdiom] = React.useState(true);
   const navigate = useNavigate();
-  
 
   const onButtonClick = () => {
-      setActive( true );
-      fetchPdf();
-   };
+    setActive(true);
+    fetchPdf();
+  };
 
   function CancelhandleClick() {
     navigate(-1);
   }
   function idiomButtonClick() {
-      setIdiom( ( state ) => !state );
+    setIdiom((state) => !state);
   }
-  React.useEffect(()=> {
-   let interval: NodeJS.Timer | undefined = undefined; 
-   if (active && width < 100) {
-       interval = setInterval(() => {
-        setWidth(( st )=> st + 1 );
+  React.useEffect(() => {
+    let interval: NodeJS.Timer | undefined = undefined;
+    if (active && width < 100) {
+      interval = setInterval(() => {
+        setWidth((st) => st + 1);
       }, 10);
     } else {
-      setActive( false );
+      setActive(false);
       clearInterval(interval);
-      setWidth(0)
+      setWidth(0);
     }
     return () => {
       clearInterval(interval);
     };
+  }, [active, width]);
 
-  }, [active, width])
-  
   return (
     <SummaryContainer>
       <SummaryHeader>
@@ -56,61 +54,59 @@ function Curriculum() {
           <MainPicture />
         </PictureContainer>
         <IdiomButtonContainer>
-          <IdiomButton onClick={ ()=> idiomButtonClick()}>
-           { idiom ? <SpanishFlag /> : <UnitedKindomFlag />}
-           { idiom ? 'Traducir al Español': 'Translate into English'}
+          <IdiomButton onClick={() => idiomButtonClick()}>
+            {idiom ? <SpanishFlag /> : <UnitedKindomFlag />}
+            {idiom ? 'Traducir al Español' : 'Translate into English'}
           </IdiomButton>
         </IdiomButtonContainer>
         <Subtitle upper bolder mt>
-          {idiom  ? 'Overview': 'Resumen'}
+          {idiom ? 'Overview' : 'Resumen'}
         </Subtitle>
         <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? overview : resumen }} />
         <Subtitle upper bolder mt>
-         { idiom ? 'standards and rules':'normas o convenciones'}
+          {idiom ? 'standards and rules' : 'normas o convenciones'}
         </Subtitle>
         <SummaryList>
-          {idiom ? standards.map( ( item, index) => (
-            <li key={ index }>{ item }</li>
-          )) : normas.map( ( item, index) => (
-            <li key={ index }>{ item }</li>
-          ))
-        }
+          {idiom
+            ? standards.map((item, index) => <li key={index}>{item}</li>)
+            : normas.map((item, index) => <li key={index}>{item}</li>)}
         </SummaryList>
         <Subtitle upper bolder mt>
-          { idiom ? 'experience':'experiencia' }
+          {idiom ? 'experience' : 'experiencia'}
         </Subtitle>
         <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? experience : experiencia }} />
         <Subtitle upper bolder mt>
-         { idiom ? 'EDUCATION OR OTHER SKILLS': 'Educación u otras habilidades' }
+          {idiom ? 'EDUCATION OR OTHER SKILLS' : 'Educación u otras habilidades'}
         </Subtitle>
         <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? education : educacion }} />
         <Subtitle upper bolder mt>
-         { idiom ? 'LIBRARIES OR TECHNOLOGIES':'Tecnologías' }
+          {idiom ? 'LIBRARIES OR TECHNOLOGIES' : 'Tecnologías'}
         </Subtitle>
-        <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? technologies : tecnologias }} />
+        <Es6LiteralString
+          dangerouslySetInnerHTML={{ __html: idiom ? technologies : tecnologias }}
+        />
         <DownloadSection>
-          <Subtitle upper bolder center mt  color='#f1f1f1'>
-             {idiom ? 'Click button to download PDF file' : 'Pulse el botón para descargar PDF'}
+          <Subtitle upper bolder center mt color='#f1f1f1'>
+            {idiom ? 'Click button to download PDF file' : 'Pulse el botón para descargar PDF'}
           </Subtitle>
           <ButtonsContainer>
             <DownloadButton onClick={onButtonClick}>
-             {idiom ? 'Download PDF' : 'Descargar PDF'} {width}%
+              {idiom ? 'Download PDF' : 'Descargar PDF'} {width}%
             </DownloadButton>
-            <CancelButton onClick={CancelhandleClick}>
-               { idiom ? 'Cancel':'Cancelar'}
-            </CancelButton>
+            <CancelButton onClick={CancelhandleClick}>{idiom ? 'Cancel' : 'Cancelar'}</CancelButton>
           </ButtonsContainer>
-        
-        <div 
-          style=
-          {{ width: `${width}%`, height: '2px', backgroundColor:'#06ade5', filter: 'drop-shadow(2em 0 1em #ffffff)' }}
-        >
-        </div>
-         <SummaryFooter >gfouz</SummaryFooter>
-        </DownloadSection> 
-       
-      </SummaryMain>
 
+          <div
+            style={{
+              width: `${width}%`,
+              height: '2px',
+              backgroundColor: '#06ade5',
+              filter: 'drop-shadow(2em 0 1em #ffffff)',
+            }}
+          ></div>
+          <SummaryFooter>gfouz</SummaryFooter>
+        </DownloadSection>
+      </SummaryMain>
     </SummaryContainer>
   );
 }
@@ -135,7 +131,6 @@ const SummaryContainer = styled.div`
 `;
 const SummaryHeader = styled(Header)``;
 const SummaryFooter = styled(Footer)`
-
   color: #f1f1f1;
   background-color: transparent;
 `;
@@ -165,16 +160,16 @@ const MainPicture = styled.img.attrs({ src: './images/gfouzcoffee.jpg', alt: 'gf
   height: auto;
   transition: 3s;
   &:hover {
-   transform: rotateY(180deg);
-   transition: 3s;
+    transform: rotateY(180deg);
+    transition: 3s;
   }
 `;
-const SpanishFlag = styled.img.attrs({ src: './images/spain.jpg', alt:'spainflag'})`
+const SpanishFlag = styled.img.attrs({ src: './images/spain.jpg', alt: 'spainflag' })`
   max-width: 100%;
   height: 30px;
   margin: 0 5px;
 `;
-const UnitedKindomFlag = styled.img.attrs({ src: './images/uk.jpg', alt: 'ukflag'})`
+const UnitedKindomFlag = styled.img.attrs({ src: './images/uk.jpg', alt: 'ukflag' })`
   max-width: 100%;
   height: 30px;
   margin: 0 5px;
@@ -208,9 +203,9 @@ const IdiomButton = styled.button`
 `;
 
 const DownloadSection = styled.div`
- padding: 1em 0;
- margin: 2em 0 0 0;
- background-color: #333333;
+  padding: 1em 0;
+  margin: 2em 0 0 0;
+  background-color: #333333;
 `;
 const ButtonsContainer = styled.div`
   display: flex;
@@ -218,8 +213,8 @@ const ButtonsContainer = styled.div`
   align-items: center;
 `;
 const DownloadButton = styled(OneButton)`
-   margin: 0;
-   background-color: #06ade5;
+  margin: 0;
+  background-color: #06ade5;
 `;
 const CancelButton = styled(OneButton)`
   margin: 0;

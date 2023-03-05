@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Suggestions from './Suggestion';
 
 interface IAnchor {
   tip?: string;
@@ -14,9 +13,7 @@ interface IAnchor {
 
 const WebLink = (props: IAnchor) => {
   return (
-    <Suggestions tip={props.tip}>
       <Anchor {...props}>{props.children}</Anchor>
-    </Suggestions>
   );
 };
 

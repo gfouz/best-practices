@@ -32,6 +32,7 @@ const StyledButton = styled.div`
     height: 40px;
     background-color: transparent;
     cursor: pointer;
+    border: none;
     z-index: 10;
 
     &:focus {

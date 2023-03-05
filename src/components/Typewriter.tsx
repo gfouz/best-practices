@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface ITypeWriter {
   p?: string;
@@ -11,28 +12,17 @@ interface ITypeWriter {
   fontfam?: string;
 }
 
-function TypeWriter(props: ITypeWriter) {
-  const { text } = props;
-  return (
-    <StyledWriter {...props}>
-      <p>{text}</p>
-    </StyledWriter>
-  );
-}
-
-export default TypeWriter;
-
-const StyledWriter = styled.div`
+export const TypeWriter = styled( motion.div )`
   width: 100%;
-  color: ${(props: ITypeWriter) => props.color || '#c40550'};
+  color: ${(props: ITypeWriter) => props.color};
   font-weight: bolder;
-  font-size: ${(props: ITypeWriter) => props.size || '12px'};
+  font-size: ${(props: ITypeWriter) => props.size};
   text-transform: uppercase;
   text-align: ${(props: ITypeWriter) => props.align || 'center'};
   padding: ${(props: ITypeWriter) => props.p};
   margin: ${(props: ITypeWriter) => props.m};
 
-  p {
+  p, h1, h2, h3, h4 {
     overflow: hidden;
     white-space: nowrap;
     margin: 0 auto;

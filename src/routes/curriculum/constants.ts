@@ -11,21 +11,21 @@ export const resumen: string = `<p>Desarrollador web enfocado en desarrollo fron
 <p> <a href="https://github.com/gfouz">Proyectos: https://github.com/gfouz</a> </p>
 <p><a href="https://youtube.com/@giovanifouz5033">YouTube: https://youtube.com/@giovanifouz5033</a></p>
 <p><a href="https://gfouz.github.io/next-blog-2023">Blog: https://gfouz.github.io/next-blog-2023</a></p> 
-`
+`;
 export const standards: string[] = [
   'Typescript.',
   'BEM (Block element modifier) as css architecture.',
   'Eslint for writing JavaScript and Typescript consistent code.',
   'Prettier for source code formatting. ',
-  'Pruebas unitaria: react-testing-library, vitest.'
+  'Pruebas unitaria: react-testing-library, vitest.',
 ];
 export const normas: string[] = [
   'Typescript',
   'BEM como arquitectura de css.',
   'Eslint para escribir código consistente.',
   'Prettier para formatear código fuente.',
-  'Test driven development: react-testing-library, vitest.'
-  ]
+  'Test driven development: react-testing-library, vitest.',
+];
 export const experience: string = `Cuantico: Fullstack with Node Js.
 <p>Calle 253. Esq. 94, No. 9218. La Cumbre,San Miguel del Padrón, La Habana.</p> 
 <p>Correo: <strong style='color: #008394'>cuanticosurl@gmail.com</strong></p> 
@@ -66,16 +66,14 @@ export const tecnologias: string = `<p>Tengo dominio utilizando react-query, rea
 zustand, valtio, react-router-dom, y para css en js la popular styled-components. Back-end: Express 
  and Sequelize to abstract databases.</p>`;
 
-export function fetchPdf( ) {
+export function fetchPdf() {
   fetch('fouzsummary.pdf').then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        let alink = document.createElement('a');
-        alink.href = fileURL;
-        alink.download = 'fouzsummary.pdf';
-        alink.click();
-      });
+    response.blob().then((blob) => {
+      const fileURL = window.URL.createObjectURL(blob);
+      let alink = document.createElement('a');
+      alink.href = fileURL;
+      alink.download = 'fouzsummary.pdf';
+      alink.click();
     });
-  };
-
-
+  });
+}

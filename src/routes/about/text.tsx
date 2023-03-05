@@ -1,6 +1,6 @@
-export const first_text = `Hello my name is Giovani, i began learning c++ in 2017 and it was my
+export const first_text = `Hello my name is Giovani, i began learning c++ and it was my
 first experience about this wonderful world. But it was a kind of hobby
-until year 2019 that i began studying web programming with a better
+because later i began studying web development with a better
 purpose in mind than a hobby. So that Node js was my pick, i
 have been very interested on back-end frameworks like Express, and
 related libraries to afford security and functionality like Bcrypt and

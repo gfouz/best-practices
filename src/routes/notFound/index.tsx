@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { Tooltip } from '@chakra-ui/react';
 
 function Notfound() {
   const navigate = useNavigate();
@@ -9,11 +8,9 @@ function Notfound() {
   }
   return (
     <>
-      <Tooltip label='Close'>
         <NotFoundCloseButton className='backwards' onClick={handleClick}>
           X
         </NotFoundCloseButton>
-      </Tooltip>
       <NotfoundContainer>
         <NotFoundImage />
       </NotfoundContainer>
