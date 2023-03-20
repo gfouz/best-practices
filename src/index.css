@@ -22,8 +22,8 @@
 }
 
 @font-face {
-  font-family: 'crowden';
-  src: local('crowden'), url('./fonts/crowden.ttf') format('truetype');
+  font-family: "crowden";
+  src: local("crowden"), url("./fonts/crowden.ttf") format("truetype");
   font-weight: bolder;
   font-display: block;
 }
@@ -75,4 +75,4 @@ body {
   font-display: block;
 }  
 
-*/  
+*/

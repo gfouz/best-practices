@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { motion, useAnimation, Variants } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import React from "react";
+import styled from "styled-components";
+import { motion, useAnimation, Variants } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 interface Iprops {
   children: React.ReactNode;
@@ -20,14 +20,20 @@ const OnScrollMotion = ({ children, variants }: Iprops) => {
 
   useEffect(() => {
     if (inView) {
-      control.start('visible');
+      control.start("visible");
     } else {
-      control.start('hidden');
+      control.start("hidden");
     }
   }, [control, inView]);
 
   return (
-    <StyledBox className='box' ref={ref} variants={ variants || boxVariant } initial='hidden' animate={control}>
+    <StyledBox
+      className="box"
+      ref={ref}
+      variants={variants || boxVariant}
+      initial="hidden"
+      animate={control}
+    >
       {children}
     </StyledBox>
   );

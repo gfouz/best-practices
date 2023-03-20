@@ -1,14 +1,61 @@
-import * as React from 'react';
-import { CSSKeyframes, keyframes, SimpleInterpolation } from 'styled-components';
+import * as React from "react";
+import {
+  CSSKeyframes,
+  keyframes,
+  SimpleInterpolation,
+} from "styled-components";
 
-export const drawerProps: React.CSSProperties = {
-  height: '150px',
-  backgroundImage: `url('./images/aside.jpg')`,
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: '70px',
+export interface IRoutesProps {
+  path: string;
+  link: React.ReactNode;
+  icon: React.ReactNode;
+}
+
+export interface TitleProps {
+  color?: string;
+}
+
+export function fetchPdf() {
+  fetch("fouzsummary.pdf").then((response) => {
+    response.blob().then((blob) => {
+      const fileURL = window.URL.createObjectURL(blob);
+      let alink = document.createElement("a");
+      alink.href = fileURL;
+      alink.download = "fouzsummary.pdf";
+      alink.click();
+    });
+  });
+}
+
+export const mainTitleAnimation = {
+  opacity: 1,
+  scale: [2, 1],
+  y: [0, 0, 0, 0, 0, 0, 0, 0 - 10],
 };
-
+export const reactVariant = {
+  visible: { transition: { duration: 3 }, opacity: 1 },
+  hidden: { opacity: 0 },
+};
+export const firstParagraphVariant = {
+  visible: { transition: { duration: 3 }, opacity: 1 },
+  hidden: { opacity: 0 },
+};
+export const secondParagraphVariant = {
+  visible: { transition: { duration: 3 }, opacity: 1 },
+  hidden: { opacity: 0 },
+};
+export const nodeJsLogoVariant = {
+  visible: { transition: { duration: 2 }, rotateX: 0 },
+  hidden: { rotateX: -90 },
+};
+export const navbarVariant = {
+  visible: { transition: { duration: 1 }, width: "100%" },
+  hidden: { width: 0 },
+};
+export const finalVariant = {
+  visible: { transition: { duration: 0.4, delay: 0.5 }, opacity: 1 },
+  hidden: { opacity: 0 },
+};
 export const attached_1 = `Hello my name is Giovani, i began learning c++ and it was my
 first experience with Arduino boards. But it was a kind of
 hobby because later i began studying web development with a

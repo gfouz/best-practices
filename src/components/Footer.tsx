@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 interface IFooter {
   color?: string;
@@ -13,6 +13,6 @@ export const Footer = styled.footer`
   align-items: center;
   font-weight: bolder;
   text-transform: uppercase;
-  color: ${(props: IFooter) => props.color || '#fff4a3'};
-  background-color: ${(props: IFooter) => props.bg || '#000000'};
+  color: ${(props: IFooter) => props.color || "#fff4a3"};
+  background-color: ${(props: IFooter) => props.bg || "#000000"};
 `;

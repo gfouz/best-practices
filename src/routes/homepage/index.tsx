@@ -1,410 +1,306 @@
-import styled from 'styled-components';
-import Marquee from 'react-fast-marquee';
-import { useSnapshot } from 'valtio';
+import { useState } from "react";
+import styled from "styled-components";
 
-import { switcher } from 'components/store';
-import { Header } from 'components/Header';
-import { Footer } from 'components/Footer';
-import { Aside } from 'components/Aside';
-import Sidebar from 'components/Sidebar';
-import Button from 'components/Button';
-import { Headline } from 'components/Headline';
-import OnScrollMotion from 'components/OnScrollMotion';
-import MotionOnScroll from 'components/MotionOnScroll';
-import { AnimatedText, AnimatedParagraph } from 'components/FramerMotions';
-import { AnimatedContainer, AnimatedButton } from 'components/FramerMotions';
+import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
+import { Footer } from "components/Footer";
+import { Headline } from "components/Headline";
+import LayersContainer from "components/LayersContainer";
+import OnScrollMotion from "components/OnScrollMotion";
+import MotionOnScroll from "components/MotionOnScroll";
+import { Picture, Subtitle, Paragraph, Span } from "components/FramerMotions";
+import { AnimatedContainer, AnimatedButton } from "components/FramerMotions";
 
+import NodeJs from "icons/NodeJs";
+import SpyGlass from "icons/SpyGlass";
+import GitAlt from "icons/GitAlt";
+import Youtube from "icons/Youtube";
+import ReactJs from "icons/ReactJs";
 
-import SpyGlass from 'icons/SpyGlass';
-import GitAlt from 'icons/GitAlt';
-import Youtube from 'icons/Youtube';
+import { Routes } from "../layout/Routes";
+import { TitleProps, fetchPdf } from "./constant";
+import { mainTitleAnimation, finalVariant } from "./constant";
+import {
+  firstParagraphVariant,
+  secondParagraphVariant,
+  navbarVariant,
+} from "./constant";
+import {
+  attached_1,
+  attached_2,
+  attached_3,
+  experience,
+  nodeJsLogoVariant,
+} from "./constant";
 
-import { Routes } from '../layout/Routes';
-import { attached_1, attached_2, attached_3, experience } from './constant';
-
-
-const mainSubtitleAnimation = {
-  opacity: 1, 
-  scale:[4, 1], 
-  y:[0,0,0,0,0,-10]
-}
-const boxVariant = {
-  visible: { transition: { duration: 2 }, y:  100 },
-  hidden: { y: -100 },
-};
-const ReactVariant = {
-  visible: { transition: { duration: 1.5 }, opacity: 1 },
-  hidden: { opacity: 0 },
-};
-export default function Homepage() {
-  const snap2 = useSnapshot(switcher);
-  const { st, reverse } = snap2;
+function Homepage() {
   return (
     <HomepageContainer>
-      <Header bg='#001f46' color='#ffffff'>
-        gfouz-{new Date().getFullYear()}
-        <Button st={st} reverse={reverse} />
-      </Header>
-
-      <HomepageMain>
-        <PictureContainer>
-          <AbsoluteContainer>
-            <MainSubtitle
+      <LayersContainer image="blackhole.jpg" center >
+        <ImageContainer align="flex-end" justify="flex-end">
+          <MainPicture
+            src="./images/spider.png"
+            alt="resposive"
+            transition={{ duration: 0.5, delay: 2.5 }}
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+          />
+        </ImageContainer>
+        <ImageContainer>
+          <MainPictureTwo
+            src="./images/blueplanet.jpg"
+            alt="resposive"
+            transition={{ duration: 0.5, delay: 4 }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+          />
+        </ImageContainer>
+        <TitleContainer>
+          <MainTitle
             transition={{
-              duration: 0.7
+              duration: 1,
             }}
             initial={{ opacity: 0 }}
-            animate = { mainSubtitleAnimation }
-            >
-               Node developer
-            </MainSubtitle>
-            <Subtitle
-              transition={{ duration: 1, delay: 1}}
-              initial={{opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-                gfouz portfolio
-            </Subtitle>
-          </AbsoluteContainer>
-        
-          <MainPicture />
-          
-        </PictureContainer>
-        <DeveloperProfile>
-          <Headline
-            size='1.3em'
-            center
-            color='#451a23'
-            bolder
-            spacing='5px'
-            fontfam='calibri'
-            p='2em 0 0 0'
+            animate={mainTitleAnimation}
           >
-            <Description>Fullstack with node js</Description>
-          </Headline>
+            <Span
+              transition={{
+                duration: 2.5,
+                delay: 1,
+              }}
+              initial={{ color: "#000000" }}
+              animate={{ color: "#436EF7" }}
+            >
+              gfouzJs
+            </Span>
+          </MainTitle>
           <LogoContainer>
-            <SpyGlass fontSize='40px' color='#f44f03' />
+            <SpyGlass fontSize="40px" color="#436EF7" margin="0 5px" />
           </LogoContainer>
-        </DeveloperProfile>
-        <SecondaryPictureContainer>
-          <AbsoluteContainer>
-        <MotionOnScroll variants={ ReactVariant } >
-                             <LightTitle >Express JS</LightTitle>
-               <LightParagraph >
-                 I worked in the first phase of a system to generate digital
-                certificates for Segurmática which is the information security company in
-                Cuba. I participated in the creation or abstraction of the database in this
-                case relational using PostgreSQL and Sequelize as ORM. As well as designed
-                the Rest Api of routes and controllers with Express and Node. I used React
-                for client side rendering, this system has great importance for the
-                development of digital certification in Cuba.
-               </LightParagraph>
+        </TitleContainer>
+      </LayersContainer>
+      <MotionOnScroll variants={navbarVariant}>
+        <AutoNavbar>
+          <Navbar>
+            <AllLinks />
+          </Navbar>
+        </AutoNavbar>
+      </MotionOnScroll>
+      <PrimaryArticle>
+        <PictureContainer>
+          <PrimaryPicture />
+        </PictureContainer>
+        <ParagraphContainer>
+          <MotionOnScroll variants={firstParagraphVariant}>
+            <FirstParagraph dangerouslySetInnerHTML={{ __html: attached_1 }} />
+          </MotionOnScroll>
+        </ParagraphContainer>
+      </PrimaryArticle>
+
+      <SecondaryArticle>
+        <ParagraphContainer>
+          <MotionOnScroll variants={secondParagraphVariant}>
+            <SecondParagraph dangerouslySetInnerHTML={{ __html: attached_1 }} />
+          </MotionOnScroll>
+        </ParagraphContainer>
+        <LayersContainer image="school.jpg" halfSection centerBottom>
+          <MotionOnScroll variants={nodeJsLogoVariant}>
+            <NodeJsLogo />
+          </MotionOnScroll>
+        </LayersContainer>
+      </SecondaryArticle>
+      <LayersContainer image="coffeecup.png" center>
+        <MotionOnScroll variants={finalVariant} >
+          <ParagraphContainer>
+            <FinalParagraph>
+              I worked in the first phase of a system to generate digital
+              certificates for Segurmática which is the information security
+              company in Cuba. I participated in the creation or abstraction
+            </FinalParagraph>
+          </ParagraphContainer>
         </MotionOnScroll>
-          </AbsoluteContainer>
-          <SecondaryPicture />
-        </SecondaryPictureContainer>
-
-        <Headline center bolder upper p='3em 0'>
-          Technologies
-        </Headline>
-        <SecondaryPictureContainer>
-          <AbsoluteContainer>
-            <OnScrollMotion>
-               <LightTitle >Express JS</LightTitle>
-               <LightParagraph >
-                 I worked in the first phase of a system to generate digital
-                certificates for Segurmática which is the information security company in
-                Cuba. I participated in the creation or abstraction of the database in this
-                case relational using PostgreSQL and Sequelize as ORM. As well as designed
-                the Rest Api of routes and controllers with Express and Node. I used React
-                for client side rendering, this system has great importance for the
-                development of digital certification in Cuba.
-               </LightParagraph>
-            </OnScrollMotion>
-          </AbsoluteContainer>
-          <TechnologiesPicture />
-        </SecondaryPictureContainer>
-       
-      </HomepageMain>
-
-      <Aside bg='#efece7'>
-
-      <PictureContainer>
-       <AbsoluteContainer>
-         <DownloadButton
-           transition={{ duration: 2.5, delay: 2}}
-           initial={{opacity: 0 }}
-           animate={{ opacity: 1 }}
-            whileHover={{
-               scale: 1.1,
-               color: '#f1f1f1',
-               backgroundColor: '#001f46',
-               transition: { duration: 0.2 } }}
-         >
-            curriculum
-         </DownloadButton>
-       </AbsoluteContainer>
-       <AnimatedBox
-          initial={{}}
-          animate={{ rotateX: [180, 360 ]}}
-          transition={{ duration: 1, delay: 1.3}}
-       >
-        <SidebarPicture />
-      </AnimatedBox> 
-      </PictureContainer> 
-        <ProfileCard>
-          <Headline upper bolder>Overview</Headline>
-          <p> {attached_1} </p>
-        </ProfileCard>
-
-        <ProfileCard>
-          <p> {attached_2} </p>
-        </ProfileCard>
-      
-          <Headline center bolder>
-            PKI System
-          </Headline>
-          <ProfileCard>
-            <Es6LiteralString dangerouslySetInnerHTML={{ __html: experience }} />
-          </ProfileCard>
-        
-        <RemoteLinks>
-          <YoutubeLink>
-            YouTube Channel
-            <Youtube fontSize='30px' color='#c40550' />
-          </YoutubeLink>
-          <GithubLink>
-            Github Projects
-            <GitAlt fontSize='30px' color='#222222' />
-          </GithubLink>
-        </RemoteLinks>
-        <MotionOnScroll variants={ boxVariant } >
-          <h1>this is a motion on scroll</h1>
-        </MotionOnScroll>
-      </Aside>
-      <Sidebar options={Routes} />
-      <Footer bg='#2a160f' color='#c2c5aa'>
-        Portfolio &copy; {new Date().getFullYear()}
-      </Footer>
+      </LayersContainer>
+      <HomepageFooter>
+        <SmallText>gfouz</SmallText>
+        {<SpyGlass fontSize="15px" color="#f2f2f2" />}
+        <SmallText>portfolio</SmallText>
+        {new Date().getFullYear()}
+      </HomepageFooter>
     </HomepageContainer>
   );
 }
 
-const HomepageContainer = styled.div`
-  display: grid;
-  grid-template-areas:
-    'header '
-    'main'
-    'aside'
-    'footer';
-  grid-template-columns: 1fr;
+export default Homepage;
 
-  @media (min-width: 750px) {
-    & {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas:
-        'header  header  header'
-        'main    main    aside'
-        'footer  footer  footer';
-    }
+const HomepageContainer = styled.div`
+  @font-face {
+    font-family: "insomnia";
+    src: local("insomnia"), url("./fonts/insomnia.ttf") format("truetype");
+    font-weight: bolder;
+    font-display: block;
   }
-  
+  width: 100%;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
-const HomepageMain = styled.main`
-  grid-area: main;
+const AutoNavbar = styled.div`
+  font-weight: bolder;
+  color: #f2f2f2;
+  letter-spacing: 2px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  justify-content: space-evenly;
+`;
+const Navbar = styled(SimpleNavbar)``;
+const ImageContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: ${(props) => props.justify || "center"};
+  align-items: ${(props) => props.align || "center"};
+  flex-direction: column;
+`;
+const TitleContainer = styled.div`
+  text-align: left;
+`;
+const MainTitle = styled(Subtitle)`
+  position: relative;
+  font-family: iron wall;
+  font-size: 10vw;
+  margin: 0 1em;
+`;
+const TitleSpan = styled.span`
+  color: #666666;
+`;
+const AnimatedSpan = styled(Subtitle)`
+  color: #8a4af3;
+`;
+const LogoContainer = styled.div`
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+`;
+const ParagraphTitle = styled(Subtitle)``;
+const PrimaryArticle = styled.article`
+  display: flex;
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
+`;
+const SecondaryArticle = styled(PrimaryArticle)`
+  @media (max-width: 749px) {
+    flex-direction: column-reverse;
+  }
+`;
+const ParagraphContainer = styled.article.attrs({ className: "ParagraphContainer"})`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const Comment = styled(Headline)`
-  font-size: 13px;
-`;
-const MainSubtitle = styled( AnimatedText )` 
- position: relative;
- color: #ffffff;
- font-family: crowden;
- font-size: 1.5em;
- letter-spacing: 2px;
- @media( min-width: 500px) {
-  font-size: 2em;
- }
-`;
-const Subtitle = styled( AnimatedText )`
- position: relative;
- margin: 0.5em;
- color: #ffffff;
- font-weight: bolder;
- font-size: 1.2em;
- font-family: calibri;
- letter-spacing: 5px;
- z-index: 10;
-`;
-const LightTitle = styled.h1`
- position: relative;
- color: #ffffff;
- font-family: crowden;
- font-size: 1.3em;
- letter-spacing: 5px;
- @media( min-width: 500px) {
-  font-size: 1.5em;
- }
-`;
-const DarkTitle = styled( LightTitle )`
-  color: #000000;
-  bottom: 0.5em;
- `;
-
-const DownloadButton = styled( AnimatedButton )`
- background-color: #f1f1f1;
- color: #222222;
- font-weight: bolder;
- font-family: crowden;
- letter-spacing: 2px;
- padding: 1em;
- border: none;
- border-radius: 10px;
- outline: none;
- z-index: 10; 
-`;
-const Snippet = styled.span`
- color: #ffffff;
-`; 
-const BlackText = styled( Snippet )`
- color: #222222;
-`;
-const AnimatedBox = styled( AnimatedContainer )`
- display: flex;
- justify-content: center;
- align-items: center;
-`;
-const Description = styled.h4`
-  font-family: calibri;
-  color: #000000;
+  justify-content: center;
+  color: #555555;
   font-weight: bolder;
+  font-family: calibri;
+  padding: 1em;
+  width: 100%;
+  @media (min-width: 750px) {
+    width: 50%;
+  }
+  @media (min-width: 900px) {
+    padding: 2em 3.5em;
+  }
 `;
-const Es6LiteralString = styled.p`
+const FirstParagraph = styled(Paragraph)`
   text-align: left;
+  color: #444444;
+  max-width: 600px;
   a {
-    font-family: calibri;
     color: #008394;
     &:hover {
       color: #ff0000;
     }
   }
 `;
+const SecondParagraph = styled(FirstParagraph)``;
+const FinalParagraph = styled(FirstParagraph)`
+
+`;
 const PictureContainer = styled.div`
-  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @media (min-width: 750px) {
+    width: 50%;
+  }
 `;
-const AbsoluteContainer = styled.div`
-position: absolute;
-padding: 1em;
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-align-items: center;
-flex-direction: column;
+
+const MainPicture = styled(Picture)`
+  width: 30%;
+  height: auto;
 `;
-const DarkAbsoluteContainer = styled( AbsoluteContainer )`
-background-color: #00000099;
-`;
-const SecondaryPictureContainer = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  
-`;
-const MainPicture = styled.img.attrs({ src: './images/blues.jpg', alt: 'primary' })`
+const MainPictureTwo = styled(Picture)`
   max-width: 100%;
   height: auto;
 `;
-
-
-const DeveloperProfile = styled.div`
-  background-color: #fafafc;
-  width: 100%;
-  padding: 2em 0;
-`;
-const SecondaryPicture = styled.img.attrs({ src: './images/bluewaves.jpg', alt: 'forReact' })`
+const PrimaryPicture = styled.img.attrs({
+  src: "./images/freelancer.jpg",
+  alt: "Primary",
+})`
   max-width: 100%;
   height: auto;
 `;
-const LightParagraph = styled.p`
+const SecondaryPicture = styled.img.attrs({
+  src: "./images/rednode.jpg",
+  alt: "NodeJs",
+})`
+  max-width: 100%;
+  height: auto;
+`;
+const NodeJsLogo = styled.img.attrs({
+  src: "./images/rednodejs.png",
+  alt: "NodeJs",
+})`
+  width: 300px;
+  height: auto;
+  position: relative;
+  bottom: 10px;
+`;
+const AvatarPicture = styled.img.attrs({
+  src: "./images/gfouz.png",
+  alt: "gfouz",
+})`
+  max-width: 100%;
+  height: auto;
+  float: left;
+  margin: -5px 5px;
+`;
+
+const FinalPicture = styled.img.attrs({
+  src: "./images/waves.jpg",
+  alt: "final",
+})`
+  max-width: 100%;
+  height: auto;
+`;
+const HomepageFooter = styled(Footer)`
   color: #ffffff;
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 600px;
-  text-align: justify;
-  text-shadow: 1px 1px 5px #000000;
+  background-color: #014a3c;
 `;
-const DarkParagraph = styled( LightParagraph )`
-  color: #222222;
+const SmallText = styled.span`
+  margin: 0 5px;
 `;
-const SidebarPicture = styled.img.attrs({ src: './images/sidebar.jpg', alt: 'laptop' })`
-  max-width: 100%;
-  height: auto;
-`;
-const TechnologiesPicture = styled.img.attrs({ src: './images/navy.jpg', alt: 'final' })`
-  max-width: 100%;
-  height: auto;
-`;
-const ProfileCard = styled.div`
-  text-align: left;
-  color: #555555;
-  border: none;
-  max-width: 600px;
-  padding: 1em;
-  min-width: 320px;
-  font-weight: bolder;
-  font-family: calibri;
-  background-color: #efece7;
-`;
-const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 3em 0;
-`;
-const RemoteLinks = styled.div`
-  width: 100%;
-  padding: 3em 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: signika;
-  background-color: #efece7;
-`;
-const YoutubeLink = styled.a.attrs({ href: 'https://youtube.com/@giovanifouz5033' })`
-  margin: 0 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #c40550;
-  font-weight: bolder;
-`;
-const GithubLink = styled.a.attrs({ href: 'https://github.com/gfouz' })`
-  margin: 0 1em;
-  font-weight: bolder;
-`;
+//#8bc34a
+// #EEEEEE #FFD368 #393D46 #212832
 
-
-// git config user.name gfouz
-// git config user.email gfouz1975@gmail.com
-// git config user.password
 /*
 
-        <Marquee>
-          <Headline bolder color='#451a23' spacing='6px' upper fontfam='signika'>
-            ReactJS styled-components valtio react-query react-hook-form axios eslint prettier
-            typescript ExpressJS
-          </Headline>
-        </Marquee>
-*/
-
-
-
+ const MainTitle = styled(AnimatedText)`
+  font-family: iron wall;
+  font-size: 3em;
+  @media (min-width: 500px) {
+    font-size: 5em;
+  }
+`;*/

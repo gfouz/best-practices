@@ -1,13 +1,26 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import * as React from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-import { Headline } from 'components/Headline';
-import { Header } from 'components/Header';
-import { Footer } from 'components/Footer';
-import { OneButton } from 'components/OneButton';
-import { overview, standards, experience, education, technologies, fetchPdf } from './constants';
-import { resumen, normas, experiencia, educacion, tecnologias } from './constants';
+import { Headline } from "components/Headline";
+import { Header } from "components/Header";
+import { Footer } from "components/Footer";
+import { OneButton } from "components/OneButton";
+import {
+  overview,
+  standards,
+  experience,
+  education,
+  technologies,
+  fetchPdf,
+} from "./constants";
+import {
+  resumen,
+  normas,
+  experiencia,
+  educacion,
+  tecnologias,
+} from "./constants";
 
 function Curriculum() {
   const [active, setActive] = React.useState(false);
@@ -45,7 +58,7 @@ function Curriculum() {
   return (
     <SummaryContainer>
       <SummaryHeader>
-        <Headline bolder ml='1em' center>
+        <Headline bolder ml="1em" center>
           gfouz curriculum
         </Headline>
       </SummaryHeader>
@@ -56,15 +69,17 @@ function Curriculum() {
         <IdiomButtonContainer>
           <IdiomButton onClick={() => idiomButtonClick()}>
             {idiom ? <SpanishFlag /> : <UnitedKindomFlag />}
-            {idiom ? 'Traducir al Español' : 'Translate into English'}
+            {idiom ? "Traducir al Español" : "Translate into English"}
           </IdiomButton>
         </IdiomButtonContainer>
         <Subtitle upper bolder mt>
-          {idiom ? 'Overview' : 'Resumen'}
+          {idiom ? "Overview" : "Resumen"}
         </Subtitle>
-        <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? overview : resumen }} />
+        <Es6LiteralString
+          dangerouslySetInnerHTML={{ __html: idiom ? overview : resumen }}
+        />
         <Subtitle upper bolder mt>
-          {idiom ? 'standards and rules' : 'normas o convenciones'}
+          {idiom ? "standards and rules" : "normas o convenciones"}
         </Subtitle>
         <SummaryList>
           {idiom
@@ -72,36 +87,48 @@ function Curriculum() {
             : normas.map((item, index) => <li key={index}>{item}</li>)}
         </SummaryList>
         <Subtitle upper bolder mt>
-          {idiom ? 'experience' : 'experiencia'}
-        </Subtitle>
-        <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? experience : experiencia }} />
-        <Subtitle upper bolder mt>
-          {idiom ? 'EDUCATION OR OTHER SKILLS' : 'Educación u otras habilidades'}
-        </Subtitle>
-        <Es6LiteralString dangerouslySetInnerHTML={{ __html: idiom ? education : educacion }} />
-        <Subtitle upper bolder mt>
-          {idiom ? 'LIBRARIES OR TECHNOLOGIES' : 'Tecnologías'}
+          {idiom ? "experience" : "experiencia"}
         </Subtitle>
         <Es6LiteralString
-          dangerouslySetInnerHTML={{ __html: idiom ? technologies : tecnologias }}
+          dangerouslySetInnerHTML={{ __html: idiom ? experience : experiencia }}
+        />
+        <Subtitle upper bolder mt>
+          {idiom
+            ? "EDUCATION OR OTHER SKILLS"
+            : "Educación u otras habilidades"}
+        </Subtitle>
+        <Es6LiteralString
+          dangerouslySetInnerHTML={{ __html: idiom ? education : educacion }}
+        />
+        <Subtitle upper bolder mt>
+          {idiom ? "LIBRARIES OR TECHNOLOGIES" : "Tecnologías"}
+        </Subtitle>
+        <Es6LiteralString
+          dangerouslySetInnerHTML={{
+            __html: idiom ? technologies : tecnologias,
+          }}
         />
         <DownloadSection>
-          <Subtitle upper bolder center mt color='#f1f1f1'>
-            {idiom ? 'Click button to download PDF file' : 'Pulse el botón para descargar PDF'}
+          <Subtitle upper bolder center mt color="#f1f1f1">
+            {idiom
+              ? "Click button to download PDF file"
+              : "Pulse el botón para descargar PDF"}
           </Subtitle>
           <ButtonsContainer>
             <DownloadButton onClick={onButtonClick}>
-              {idiom ? 'Download PDF' : 'Descargar PDF'} {width}%
+              {idiom ? "Download PDF" : "Descargar PDF"} {width}%
             </DownloadButton>
-            <CancelButton onClick={CancelhandleClick}>{idiom ? 'Cancel' : 'Cancelar'}</CancelButton>
+            <CancelButton onClick={CancelhandleClick}>
+              {idiom ? "Cancel" : "Cancelar"}
+            </CancelButton>
           </ButtonsContainer>
 
           <div
             style={{
               width: `${width}%`,
-              height: '2px',
-              backgroundColor: '#06ade5',
-              filter: 'drop-shadow(2em 0 1em #ffffff)',
+              height: "2px",
+              backgroundColor: "#06ade5",
+              filter: "drop-shadow(2em 0 1em #ffffff)",
             }}
           ></div>
           <SummaryFooter>gfouz</SummaryFooter>
@@ -123,8 +150,8 @@ const SummaryContainer = styled.div`
   justify-content: center;
   box-shadow: 1px 1px 10px #999999;
   @font-face {
-    font-family: 'signika';
-    src: local('signika'), url('./fonts/signika.ttf') format('truetype');
+    font-family: "signika";
+    src: local("signika"), url("./fonts/signika.ttf") format("truetype");
     font-weight: bolder;
     font-display: block;
   }
@@ -155,7 +182,10 @@ const PictureContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
-const MainPicture = styled.img.attrs({ src: './images/gfouzcoffee.jpg', alt: 'gfouz' })`
+const MainPicture = styled.img.attrs({
+  src: "./images/gfouzcoffee.jpg",
+  alt: "gfouz",
+})`
   max-width: 100%;
   height: auto;
   transition: 3s;
@@ -164,12 +194,18 @@ const MainPicture = styled.img.attrs({ src: './images/gfouzcoffee.jpg', alt: 'gf
     transition: 3s;
   }
 `;
-const SpanishFlag = styled.img.attrs({ src: './images/spain.jpg', alt: 'spainflag' })`
+const SpanishFlag = styled.img.attrs({
+  src: "./images/spain.jpg",
+  alt: "spainflag",
+})`
   max-width: 100%;
   height: 30px;
   margin: 0 5px;
 `;
-const UnitedKindomFlag = styled.img.attrs({ src: './images/uk.jpg', alt: 'ukflag' })`
+const UnitedKindomFlag = styled.img.attrs({
+  src: "./images/uk.jpg",
+  alt: "ukflag",
+})`
   max-width: 100%;
   height: 30px;
   margin: 0 5px;

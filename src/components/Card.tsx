@@ -1,14 +1,14 @@
-import styled from 'styled-components';
-import { Box, Heading, Skeleton } from '@chakra-ui/react';
+import styled from "styled-components";
+import { Box, Heading, Skeleton } from "@chakra-ui/react";
 
 export default function Card() {
   return (
     <StyledSkeleton>
-      <Heading size='md' color='#666666'>
+      <Heading size="md" color="#666666">
         LOADING...
       </Heading>
-      <Box w='100%'>
-        <Skeleton height='20px' startColor='grey' />
+      <Box w="100%">
+        <Skeleton height="20px" startColor="grey" />
       </Box>
     </StyledSkeleton>
   );

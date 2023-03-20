@@ -1,48 +1,48 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
-import { RowArranged } from 'components/Containers';
-import { Headline } from 'components/Headline';
-import WebLink from 'components/Link';
+import { RowArranged } from "components/Containers";
+import { Headline } from "components/Headline";
+import WebLink from "components/Link";
 
-import SpyGlass from 'icons/SpyGlass';
-import { Routes } from '../layout/Routes';
-import Layout from '../layout/Layout';
-import { project, attached } from './constants';
+import SpyGlass from "icons/SpyGlass";
+import { Routes } from "../layout/Routes";
+import Layout from "../layout/Layout";
+import { project, attached } from "./constants";
 
 //const tip = 'You may see my source code on Github!';
-const tip2 = 'Here i show some technologies i currently use each day';
+const tip2 = "Here i show some technologies i currently use each day";
 
 function Work() {
   return (
     <>
-      <Layout options={Routes} bg='#0b514c' lbg='#f5f5f5'>
+      <Layout options={Routes} bg="#0b514c" lbg="#f5f5f5">
         <WorkContainer>
-          <Headline center upper p='2em 0 0 0' spacing='7px'>
+          <Headline center upper p="2em 0 0 0" spacing="7px">
             Gfouz
           </Headline>
-          <img src='./images/home.png' alt='from-home' />
+          <img src="./images/home.png" alt="from-home" />
           <GoldenLine />
-          <Title color='#999999' size='1.5em' spacing='10px' upper center>
+          <Title color="#999999" size="1.5em" spacing="10px" upper center>
             working from home with
           </Title>
           <CardContainer>
             {project.map((item, index) => (
               <Card key={index} className={`card ${item.card}`}>
-                <WebLink href={item.path} font='bolder' size='1.3em' uppercase>
+                <WebLink href={item.path} font="bolder" size="1.3em" uppercase>
                   {item.name}
                 </WebLink>
               </Card>
             ))}
           </CardContainer>
-          <Headline center upper bolder color='#999999'>
-            {' '}
-            Overview of my own opinion about technologies{' '}
+          <Headline center upper bolder color="#999999">
+            {" "}
+            Overview of my own opinion about technologies{" "}
           </Headline>
-          <Paragraph p='1em 0.5em 4em 0.5em' fontfam='calibri'>
+          <Paragraph p="1em 0.5em 4em 0.5em" fontfam="calibri">
             {attached}
           </Paragraph>
           <LogoContainer>
-            <SpyGlass fontSize='40px' color='#999999' />
+            <SpyGlass fontSize="40px" color="#999999" />
           </LogoContainer>
         </WorkContainer>
       </Layout>

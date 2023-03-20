@@ -7,19 +7,19 @@ type IProject = IProps[];
 
 export const project: IProject = [
   {
-    card: 'card-1',
-    name: 'gfouz-blog',
-    path: 'https://gfouz.github.io/next-blog-2023',
+    card: "card-1",
+    name: "gfouz-blog",
+    path: "https://gfouz.github.io/next-blog-2023",
   },
   {
-    card: 'card-2',
-    name: 'react-best-practices',
-    path: 'https://github.com/gfouz',
+    card: "card-2",
+    name: "react-best-practices",
+    path: "https://github.com/gfouz",
   },
   {
-    card: 'card-3',
-    name: 'wonderful-express',
-    path: 'https://github.com/gfouz',
+    card: "card-3",
+    name: "wonderful-express",
+    path: "https://github.com/gfouz",
   },
 ];
 
