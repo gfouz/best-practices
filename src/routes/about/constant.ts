@@ -1,9 +1,5 @@
 import * as React from "react";
-import {
-  CSSKeyframes,
-  keyframes,
-  SimpleInterpolation,
-} from "styled-components";
+
 
 export const drawerProps: React.CSSProperties = {
   height: "150px",
@@ -34,8 +30,18 @@ export const mainSubtitleAnimation = {
   scale: [4, 1],
   y: [0, 0, 0, 0, 0, -10],
 };
+
+export const mainTitleVariant = {
+  visible: { transition: { duration: 3 }, opacity: 1 },
+  hidden: { opacity: 0 },
+};
+
 export const reactVariant = {
   visible: { transition: { duration: 3 }, opacity: 1 },
+  hidden: { opacity: 0 },
+};
+export const styledWomanVariant = {
+  visible: { transition: { duration: 2 }, opacity: 1 },
   hidden: { opacity: 0 },
 };
 

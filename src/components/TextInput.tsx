@@ -16,6 +16,8 @@ type InputProps = {
   required?: boolean;
   defaultValue?: string;
   label: Path<IFormInput>;
+  onMouseEnter?: React.MouseEventHandler<HTMLInputElement> | undefined;
+  onMouseLeave?: React.MouseEventHandler<HTMLInputElement> | undefined;
   register: UseFormRegister<IFormInput>;
 };
 const TextInput = ({

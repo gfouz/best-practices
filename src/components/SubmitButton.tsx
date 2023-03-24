@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const jello = keyframes`
  0% {
@@ -34,9 +34,9 @@ export const SubmitButton = styled.button.attrs({ type: "submit" })`
   color: #f1f1f1;
   background-color: #444444;
   &.jello {
-  animation: ${ jello } 1s both;
+    animation: ${jello} 1s both;
   }
   &:hover {
-  background-color: #000000;  
+    background-color: #000000;
   }
 `;

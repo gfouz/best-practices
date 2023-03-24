@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Marquee from "react-fast-marquee";
 import { useSnapshot } from "valtio";
 
 import { switcher } from "components/store";
@@ -12,19 +11,24 @@ import Button from "components/Button";
 import { Headline } from "components/Headline";
 import OnScrollMotion from "components/OnScrollMotion";
 import MotionOnScroll from "components/MotionOnScroll";
-import { Subtitle, AnimatedParagraph } from "components/FramerMotions";
+import LayersContainer from "components/LayersContainer";
+import { Subtitle } from "components/FramerMotions";
 import { AnimatedContainer, AnimatedButton } from "components/FramerMotions";
 
-import SpyGlass from "icons/SpyGlass";
 import GitAlt from "icons/GitAlt";
 import Youtube from "icons/Youtube";
+//import NodeJs from "icons/NodeJs";
 
 import { Routes } from "../layout/Routes";
 import { TitleProps, fetchPdf } from "./constant";
-import { mainSubtitleAnimation, reactVariant } from "./constant";
-import { attached_1, attached_2, attached_3, experience } from "./constant";
+import useMediaQuery from '../../hooks/useMediaQuery';
+import {  reactVariant, styledWomanVariant } from "./constant";
+import { attached_1, attached_2, experience } from "./constant";
+
 
 export default function Homepage() {
+
+  const isMobile = useMediaQuery('(max-width: 450px)');
   const snap2 = useSnapshot(switcher);
   const { st, reverse } = snap2;
 
@@ -35,54 +39,18 @@ export default function Homepage() {
   };
 
   return (
-    <HomepageContainer>
-      <Header bg="#051320" color="#ffffff">
+    <AboutContainer>
+      <AboutHeader bg="#1b1f22" color="#ffffff">
         gfouz-{new Date().getFullYear()}
         <Button st={st} reverse={reverse} />
-      </Header>
+      </AboutHeader>
 
-      <HomepageMain>
-        <PictureContainer>
-          <AbsoluteContainer>
-            <MainSubtitle
-              transition={{
-                duration: 0.7,
-              }}
-              initial={{ opacity: 0 }}
-              animate={mainSubtitleAnimation}
-            >
-            
-            </MainSubtitle>
-            <AnimatedSubtitle
-              transition={{ duration: 1, delay: 1 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-            
-            </AnimatedSubtitle>
-          </AbsoluteContainer>
-
-          <MainPicture />
-        </PictureContainer>
-        <DeveloperProfile>
-          <Headline
-            size="1.3em"
-            center
-            color="#451a23"
-            bolder
-            spacing="5px"
-            fontfam="calibri"
-            p="2em 0 0 0"
-          >
-            <Description>Fullstack with node js</Description>
-          </Headline>
-          <LogoContainer>
-            <SpyGlass fontSize="40px" color="#f44f03" />
-          </LogoContainer>
-        </DeveloperProfile>
+      <AboutMain>
+        <LayersContainer image="colored.jpg" centerBottom >
+        </LayersContainer>
         <SecondaryPictureContainer>
           <AbsoluteContainer>
-            <MotionOnScroll variants={reactVariant} column >
+            <MotionOnScroll variants={reactVariant} column>
               <LightTitle>React JS</LightTitle>
               <LightParagraph>
                 I worked in the first phase of a system to generate digital
@@ -110,7 +78,7 @@ export default function Homepage() {
           </AbsoluteContainer>
           <TechnologiesPicture />
         </SecondaryPictureContainer>
-      </HomepageMain>
+      </AboutMain>
 
       <Aside bg="#efece7">
         <PictureContainer>
@@ -120,9 +88,9 @@ export default function Homepage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               whileHover={{
-                scale: 1.1,
                 color: "#f1f1f1",
-                backgroundColor: "#001f46",
+                border: "1px solid #64003f",
+                backgroundColor: "#fc00a4",
                 transition: { duration: 0.2 },
               }}
               onClick={handleClick}
@@ -139,7 +107,7 @@ export default function Homepage() {
           <AnimatedBox
             initial={{}}
             animate={{ rotateX: [180, 360] }}
-            transition={{ duration: 1, delay: 1.3 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
             <SidebarPicture />
           </AnimatedBox>
@@ -175,14 +143,21 @@ export default function Homepage() {
         </RemoteLinks>
       </Aside>
       <Sidebar options={Routes} />
-      <Footer bg="#001f46" color="#c2c5aa">
+      <Footer bg="#1b1f22" color="#c2c5aa">
         Portfolio &copy; {new Date().getFullYear()}
       </Footer>
-    </HomepageContainer>
+    </AboutContainer>
   );
 }
 
-const HomepageContainer = styled.div`
+const AboutContainer = styled.div`
+  background-color: #1b1f22;
+  @font-face {
+    font-family: "insomnia";
+    src: local("insomnia"), url("./fonts/insomnia.ttf") format("truetype");
+    font-weight: bolder;
+    font-display: block;
+  }
   display: grid;
   grid-template-areas:
     "header "
@@ -201,39 +176,32 @@ const HomepageContainer = styled.div`
     }
   }
 `;
-const HomepageMain = styled.main`
+const AboutHeader = styled( Header )`
+  padding: 1.3em;
+`;
+const AboutMain = styled.main`
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const Comment = styled(Headline)`
-  font-size: 13px;
-`;
+
 const MainSubtitle = styled(Subtitle)`
   position: relative;
-  color: #D12407;
-  font-family: iron wall;
-  font-size: 1.5em;
+  bottom: 0.7em;
+  color: #f1f1f1;
+  font-family: insomnia;
+  font-size: 2rem;
   letter-spacing: 2px;
-  @media (min-width: 500px) {
-    font-size: 2em;
+  @media (min-width: 600px) {
+    font-size: 3rem;
   }
 `;
-const AnimatedSubtitle = styled(Subtitle)`
-  position: relative;
-  margin: 0.5em;
-  color: #ffffff;
-  font-weight: bolder;
-  font-size: 1.2em;
-  font-family: calibri;
-  letter-spacing: 5px;
-  z-index: 10;
-`;
+
 const LightTitle = styled.h1<TitleProps>`
   position: relative;
   color: ${(props) => props.color || "#cccccc"};
-  font-family: crowden;
+  font-family: insomnia;
   font-size: 1.3em;
   letter-spacing: 5px;
   bottom: 0.2em;
@@ -241,39 +209,29 @@ const LightTitle = styled.h1<TitleProps>`
     font-size: 1.5em;
   }
 `;
-const DarkTitle = styled(LightTitle)`
-  color: #000000;
-  bottom: 0.5em;
-`;
 
 const DownloadButton = styled(AnimatedButton)`
-  background-color: #f1f1f1;
   color: #222222;
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bolder;
   font-family: calibri;
   letter-spacing: 2px;
-  padding: 1em;
   border: none;
   border-radius: 10px;
   outline: none;
   z-index: 10;
-`;
-const Snippet = styled.span`
-  color: #ffffff;
-`;
-const BlackText = styled(Snippet)`
-  color: #222222;
+  background-color: #f1f1f1;
 `;
 const AnimatedBox = styled(AnimatedContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-const Description = styled.h4`
-  font-family: calibri;
-  color: #000000;
-  font-weight: bolder;
-`;
+
 const Es6LiteralString = styled.p`
   text-align: left;
   a {
@@ -302,30 +260,16 @@ const AbsoluteContainer = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-const DarkAbsoluteContainer = styled(AbsoluteContainer)`
-  background-color: #00000099;
-`;
+
 const SecondaryPictureContainer = styled.div`
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
 `;
-const MainPicture = styled.img.attrs({
-  src: "./images/coffeecup.jpg",
-  alt: "primary",
-})`
-  max-width: 100%;
-  height: auto;
-`;
 
-const DeveloperProfile = styled.div`
-  background-color: #fafafc;
-  width: 100%;
-  padding: 2em 0;
-`;
 const SecondaryPicture = styled.img.attrs({
-  src: "./images/earth.jpg",
+  src: "./images/abstract.jpg",
   alt: "forReact",
 })`
   max-width: 100%;
@@ -338,18 +282,15 @@ const LightParagraph = styled.p`
   max-width: 600px;
   text-align: justify;
 `;
-const DarkParagraph = styled(LightParagraph)`
-  color: #222222;
-`;
 const SidebarPicture = styled.img.attrs({
-  src: "./images/sidebar.jpg",
+  src: "./images/sidebar3.jpg",
   alt: "laptop",
 })`
   max-width: 100%;
   height: auto;
 `;
 const SidebarAvatar = styled.img.attrs({
-  src: "./images/gfouz.png",
+  src: "./images/gfouz2.png",
   alt: "gfouz",
 })`
   max-width: 100%;
@@ -358,7 +299,7 @@ const SidebarAvatar = styled.img.attrs({
   margin: -5px 5px;
 `;
 const TechnologiesPicture = styled.img.attrs({
-  src: "./images/homep.jpg",
+  src: "./images/abstract.jpg",
   alt: "forExpress",
 })`
   max-width: 100%;
@@ -374,11 +315,6 @@ const ProfileCard = styled.div`
   font-weight: bolder;
   font-family: calibri;
   background-color: #efece7;
-`;
-const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 3em 0;
 `;
 const RemoteLinks = styled.div`
   width: 100%;
@@ -396,11 +332,15 @@ const YoutubeLink = styled.a.attrs({
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #c40550;
+  color: #444444;
   font-weight: bolder;
 `;
 const GithubLink = styled.a.attrs({ href: "https://github.com/gfouz" })`
   margin: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444444;
   font-weight: bolder;
 `;
 
@@ -408,12 +348,14 @@ const GithubLink = styled.a.attrs({ href: "https://github.com/gfouz" })`
 // git config user.email gfouz1975@gmail.com
 // git config user.password
 /*
+import { motion, useAnimation, Variants } from "framer-motion";
 
-        <Marquee>
-          <Headline bolder color='#451a23' spacing='6px' upper fontfam='signika'>
-            ReactJS styled-components valtio react-query react-hook-form axios eslint prettier
-            typescript ExpressJS
-          </Headline>
-        </Marquee>
-        
+const svgVariants = {
+  visible: { transition: { duration: 3 }, opacity: 1 },
+  hidden: { opacity: 0 },
+}
+const pathVariants = {
+  visible: { transition: { duration: 3 }, pathLength: 1 },
+  hidden: { pathLength: 0 },
+}
 */

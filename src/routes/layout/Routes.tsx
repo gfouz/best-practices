@@ -21,9 +21,9 @@ export const Routes: IRoutesProps[] = [
     link: <Link to="/about">About</Link>,
   },
   {
-    path: "/work",
+    path: "/contact",
     icon: <FileSearch color="#ffffff" />,
-    link: <Link to="/work">Work</Link>,
+    link: <Link to="/contact">Contact</Link>,
   },
   {
     path: "/blog",

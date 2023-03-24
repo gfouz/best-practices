@@ -43,7 +43,7 @@ export const experiencia: string = `Cuantico: Fullstack Node Js
 empresa de seguridad informática en Cuba. Trabajé en la creación o abstración de la base de datos, en este caso 
 utilicé PostgreSQL y Sequelize para abstraer las tablas. También diseñé la REST API con sus rutas y controladores
 para esto utilicé a Express y Node Js. Para el front end, utilicé a React y varias librerias muy populares, como 
-react-query, react-hook-form, zustang, valtio y otras. Este sistema tiene importancia para el desarrollo de
+react-query, react-hook-form, zustand, valtio y otras. Este sistema tiene importancia para el desarrollo de
 la certificacion dígital en Cuba.</p>
 <a href="https://github.com/gfouz/pki-server-2023.git">https://github.com/gfouz/pki-server-2023</a>`;
 

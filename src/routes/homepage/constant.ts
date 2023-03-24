@@ -1,9 +1,4 @@
 import * as React from "react";
-import {
-  CSSKeyframes,
-  keyframes,
-  SimpleInterpolation,
-} from "styled-components";
 
 export interface IRoutesProps {
   path: string;
@@ -27,6 +22,10 @@ export function fetchPdf() {
   });
 }
 
+export const mainTitleVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { delay: 2.5, duration: 2.5 } }
+};
 export const mainTitleAnimation = {
   opacity: 1,
   scale: [2, 1],
@@ -56,28 +55,24 @@ export const finalVariant = {
   visible: { transition: { duration: 0.4, delay: 0.5 }, opacity: 1 },
   hidden: { opacity: 0 },
 };
-export const attached_1 = `Hello my name is Giovani, i began learning c++ and it was my
-first experience with Arduino boards. But it was a kind of
-hobby because later i began studying web development with a
-better purpose in mind. So that Node js was my pick, i have been
-studying back-end frameworks like Express, and related libraries to
-afford security and functionality, besides very useful concepts to
-reuse logic such as middlewares and i have had practical experience working with
-ORM or ODM to abstract databases such as Sequelize or Mongoose. I have
-designed and abstracted databases for a System that will afford PKI
-services in Cuba. `;
+export const attached_1 = `I am web developer focused on React Js and the most recently
+technologies related to this library such as framer-motion,
+styled-components, chakra ui, zustand, valtio, react-router-dom,
+react-hook-forms, react-query and wonderful libraries made specially
+for react by its own creators.
+ <a href="https://github.com/gfouz/best-practices.git"><b>Portfolio 2023</b><a>`;
 
-export const attached_2 = `React is open-sourced by Facebook just a shy a few years ago, it’s
-already become the number one choice for JavaScript devs around the
-globe. And i have picked to work with this wonderful technology that
-brings so many advantages. However Technology changes, and it changes
-quickly. I am open-minded to new technologies in order to learn them
-and then also take advantage of them. I currently use react libraries
-such as react-hook-form, react-query, valtio, zustand,
-styled-components, framer-motion and the popular react-router-dom.`;
+export const attached_2 = `I am also focused on Express Js, and related libraries to afford
+security and functionality, besides very useful concepts to reuse
+logic such as middlewares and i have had practical experience working
+with ORM or ODM to abstract databases such as Sequelize or Mongoose. I
+have also used libraries such as axios, bcrypt, jsonwebtoken, dotenv, joi and
+others...
+<a href="https://github.com/gfouz/pki-server-2023.git"><b>pki-server-2023</b><a>`;
 
-export const attached_3 = `Tell me and I will forget, show me and I may
- remenber, involve me and I will understand`;
+export const attached_3 = `I worked in the first phase of a system to generate digital 
+certificates for Segurmática which is an information security company in Cuba. 
+<a href="https://github.com/gfouz/pki-server-2023.git"><b>pki-server-2023</b><a>`;
 
 export const experience = `<p>I worked in the first phase of a system to generate digital 
 certificates for Segurmática which is the information security company in Cuba, 

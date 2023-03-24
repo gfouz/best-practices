@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const blogLink = "https://gfouz.github.io/next-blog-2023";
+//const blogLink = "https://gfouz.github.io/next-blog-2023";
 
 const AllLinks = () => {
   return (

@@ -13,6 +13,7 @@ function Notfound() {
       </NotFoundCloseButton>
       <NotfoundContainer>
         <NotFoundImage />
+        <MainTitle>Page is not found</MainTitle>
       </NotfoundContainer>
     </>
   );
@@ -26,6 +27,9 @@ const NotfoundContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #23074a;
+`;
+const MainTitle = styled.h1`
+  color: #ffffff;
 `;
 const NotFoundImage = styled.img.attrs({
   src: "./images/notfound.jpg",

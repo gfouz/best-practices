@@ -1,82 +1,51 @@
-import { useState } from "react";
+//import { useState } from "react";
 import styled from "styled-components";
 
-import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
 import { Footer } from "components/Footer";
-import { Headline } from "components/Headline";
+import ContactForm from 'components/ContactForm';
 import LayersContainer from "components/LayersContainer";
-import OnScrollMotion from "components/OnScrollMotion";
+import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
+
 import MotionOnScroll from "components/MotionOnScroll";
-import { Picture, Subtitle, Paragraph, Span } from "components/FramerMotions";
-import { AnimatedContainer, AnimatedButton } from "components/FramerMotions";
+import { Subtitle, Paragraph  } from "components/FramerMotions";
 
-import NodeJs from "icons/NodeJs";
-import SpyGlass from "icons/SpyGlass";
-import GitAlt from "icons/GitAlt";
-import Youtube from "icons/Youtube";
-import ReactJs from "icons/ReactJs";
+import Wxplorer from 'components/Wxplorer';
+import SpyGlass from 'icons/SpyGlass';
 
-import { Routes } from "../layout/Routes";
-import { TitleProps, fetchPdf } from "./constant";
-import { mainTitleAnimation, finalVariant } from "./constant";
-import {
-  firstParagraphVariant,
-  secondParagraphVariant,
-  navbarVariant,
-} from "./constant";
+import useMediaQuery from './useMediaQuery';
+
+import { mainTitleVariants, finalVariant, navbarVariant } from "./constant";
+import { firstParagraphVariant, secondParagraphVariant } from "./constant";
 import {
   attached_1,
   attached_2,
   attached_3,
-  experience,
   nodeJsLogoVariant,
 } from "./constant";
 
 function Homepage() {
+  
+  const isMobile = useMediaQuery('(max-width: 700px)');
   return (
     <HomepageContainer>
-      <LayersContainer image="blackhole.jpg" center >
-        <ImageContainer align="flex-end" justify="flex-end">
-          <MainPicture
-            src="./images/spider.png"
-            alt="resposive"
-            transition={{ duration: 0.5, delay: 2.5 }}
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-          />
-        </ImageContainer>
-        <ImageContainer>
-          <MainPictureTwo
-            src="./images/blueplanet.jpg"
-            alt="resposive"
-            transition={{ duration: 0.5, delay: 4 }}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-          />
-        </ImageContainer>
-        <TitleContainer>
-          <MainTitle
-            transition={{
-              duration: 1,
-            }}
-            initial={{ opacity: 0 }}
-            animate={mainTitleAnimation}
+      <LayersContainer image="redplanet.jpg" center >
+      
+        <Wxplorer 
+          fill='#c4b7b4' 
+          strokeColor='#c4b7b4' 
+          width={ isMobile ? '100' : undefined }
+          height={ isMobile ? '100' : undefined }
+          /> 
+         <MainTitle
+           variants={mainTitleVariants} 
+           initial='initial'
+           animate='animate'
           >
-            <Span
-              transition={{
-                duration: 2.5,
-                delay: 1,
-              }}
-              initial={{ color: "#000000" }}
-              animate={{ color: "#436EF7" }}
-            >
-              gfouzJs
-            </Span>
-          </MainTitle>
-          <LogoContainer>
-            <SpyGlass fontSize="40px" color="#436EF7" margin="0 5px" />
-          </LogoContainer>
-        </TitleContainer>
+            
+          fouzJs
+         </MainTitle>
+  
+    
       </LayersContainer>
       <MotionOnScroll variants={navbarVariant}>
         <AutoNavbar>
@@ -99,7 +68,7 @@ function Homepage() {
       <SecondaryArticle>
         <ParagraphContainer>
           <MotionOnScroll variants={secondParagraphVariant}>
-            <SecondParagraph dangerouslySetInnerHTML={{ __html: attached_1 }} />
+            <SecondParagraph dangerouslySetInnerHTML={{ __html: attached_2 }} />
           </MotionOnScroll>
         </ParagraphContainer>
         <LayersContainer image="school.jpg" halfSection centerBottom>
@@ -109,13 +78,9 @@ function Homepage() {
         </LayersContainer>
       </SecondaryArticle>
       <LayersContainer image="coffeecup.png" center>
-        <MotionOnScroll variants={finalVariant} >
+        <MotionOnScroll variants={finalVariant}>
           <ParagraphContainer>
-            <FinalParagraph>
-              I worked in the first phase of a system to generate digital
-              certificates for Segurmática which is the information security
-              company in Cuba. I participated in the creation or abstraction
-            </FinalParagraph>
+            <FinalParagraph dangerouslySetInnerHTML={{ __html: attached_3 }}></FinalParagraph>
           </ParagraphContainer>
         </MotionOnScroll>
       </LayersContainer>
@@ -152,41 +117,17 @@ const AutoNavbar = styled.div`
   height: 40px;
   display: flex;
   align-items: center;
-  background-color: #000000;
+  background-color: #14191f;
   justify-content: space-evenly;
 `;
 const Navbar = styled(SimpleNavbar)``;
-const ImageContainer = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: ${(props) => props.justify || "center"};
-  align-items: ${(props) => props.align || "center"};
-  flex-direction: column;
-`;
-const TitleContainer = styled.div`
-  text-align: left;
-`;
+
 const MainTitle = styled(Subtitle)`
-  position: relative;
+  color: #c4b7b4;
   font-family: iron wall;
-  font-size: 10vw;
-  margin: 0 1em;
+  font-size: 8vw;
 `;
-const TitleSpan = styled.span`
-  color: #666666;
-`;
-const AnimatedSpan = styled(Subtitle)`
-  color: #8a4af3;
-`;
-const LogoContainer = styled.div`
-  position: relative;
-  text-align: center;
-  width: 100%;
-  z-index: 2;
-`;
-const ParagraphTitle = styled(Subtitle)``;
+
 const PrimaryArticle = styled.article`
   display: flex;
   @media (max-width: 750px) {
@@ -198,7 +139,9 @@ const SecondaryArticle = styled(PrimaryArticle)`
     flex-direction: column-reverse;
   }
 `;
-const ParagraphContainer = styled.article.attrs({ className: "ParagraphContainer"})`
+const ParagraphContainer = styled.article.attrs({
+  className: "ParagraphContainer",
+})`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -227,9 +170,7 @@ const FirstParagraph = styled(Paragraph)`
   }
 `;
 const SecondParagraph = styled(FirstParagraph)``;
-const FinalParagraph = styled(FirstParagraph)`
-
-`;
+const FinalParagraph = styled(FirstParagraph)``;
 const PictureContainer = styled.div`
   width: 100%;
   @media (min-width: 750px) {
@@ -237,14 +178,7 @@ const PictureContainer = styled.div`
   }
 `;
 
-const MainPicture = styled(Picture)`
-  width: 30%;
-  height: auto;
-`;
-const MainPictureTwo = styled(Picture)`
-  max-width: 100%;
-  height: auto;
-`;
+
 const PrimaryPicture = styled.img.attrs({
   src: "./images/freelancer.jpg",
   alt: "Primary",
@@ -252,13 +186,7 @@ const PrimaryPicture = styled.img.attrs({
   max-width: 100%;
   height: auto;
 `;
-const SecondaryPicture = styled.img.attrs({
-  src: "./images/rednode.jpg",
-  alt: "NodeJs",
-})`
-  max-width: 100%;
-  height: auto;
-`;
+
 const NodeJsLogo = styled.img.attrs({
   src: "./images/rednodejs.png",
   alt: "NodeJs",
@@ -268,23 +196,7 @@ const NodeJsLogo = styled.img.attrs({
   position: relative;
   bottom: 10px;
 `;
-const AvatarPicture = styled.img.attrs({
-  src: "./images/gfouz.png",
-  alt: "gfouz",
-})`
-  max-width: 100%;
-  height: auto;
-  float: left;
-  margin: -5px 5px;
-`;
 
-const FinalPicture = styled.img.attrs({
-  src: "./images/waves.jpg",
-  alt: "final",
-})`
-  max-width: 100%;
-  height: auto;
-`;
 const HomepageFooter = styled(Footer)`
   color: #ffffff;
   background-color: #014a3c;

@@ -5,8 +5,8 @@ export function NodeJs(props: React.SVGProps<SVGSVGElement> | ISvgProps) {
   return (
     <>
       <svg
-        width={props.width || "2500"}
-        height={props.height || "708"}
+        width={props.width || "300"}
+        height={props.height || "100"}
         viewBox="0 0 512 145"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMinYMin meet"

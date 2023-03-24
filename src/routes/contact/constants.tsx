@@ -1,12 +1,11 @@
 import axios from "axios";
 import { keyframes } from "styled-components";
 
-interface IFormInput {
+export interface IFormInput {
   name: string;
   email: string;
   message: string;
 }
-
 export async function postRequest(data: IFormInput): Promise<IFormInput | any> {
   try {
     const res = await axios.post<IFormInput>(

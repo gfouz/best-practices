@@ -11,7 +11,7 @@ import { EmailInput } from "components/EmailInput";
 import { Subtitle } from "components/FramerMotions";
 import { SubmitButton } from "components/SubmitButton";
 
-function Contact() {
+function ContactForm() {
   const {
     register,
     handleSubmit,
@@ -117,7 +117,7 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactForm;
 
 
 const ContactContainer = styled.div`
@@ -125,7 +125,7 @@ const ContactContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 500px;
   .upwards {
     position: relative;
     bottom: 10px;
@@ -137,11 +137,7 @@ const ContactContainer = styled.div`
   .normal {
     position: static;
   }
-  background-image:  url("./images/violet.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  
 `;
 const MainTitle = styled(Subtitle)`
   color: #ffffff;

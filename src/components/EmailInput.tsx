@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 type InputProps = {
   id?: string;
@@ -7,13 +7,10 @@ type InputProps = {
   onMouseLeave?: React.MouseEventHandler<HTMLInputElement> | undefined;
 };
 
-
-export const EmailInput = styled.input.attrs<InputProps>( ( props )=> ({
- id: props.id,
- type: "email",
- defaultValue: props.defaultValue,
- onMouseEnter: props.onMouseEnter,
- onMouseLeave: props.onMouseLeave
+export const EmailInput = styled.input.attrs<InputProps>((props) => ({
+  id: props.id,
+  type: "email",
+  defaultValue: props.defaultValue,
+  onMouseEnter: props.onMouseEnter,
+  onMouseLeave: props.onMouseLeave,
 }))``;
-
-

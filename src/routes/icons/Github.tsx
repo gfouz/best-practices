@@ -1,12 +1,13 @@
 import { createElement } from "react";
+import { ISvgProps } from "./constants";
 
-export function GitAlt(props: React.SVGProps<SVGSVGElement> | ISvgProps) {
+export function Github(props: React.SVGProps<SVGSVGElement> | ISvgProps) {
   return createElement(
     "svg",
     {
       viewBox: "0 0 32 32",
       width: props.width || "1em",
-      length: props.length || "1em",
+      length: 'auto',
       ...props,
     },
     createElement("path", {
@@ -15,4 +16,4 @@ export function GitAlt(props: React.SVGProps<SVGSVGElement> | ISvgProps) {
     })
   );
 }
-export default SvgGit;
+export default Github;

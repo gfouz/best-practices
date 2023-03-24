@@ -6,59 +6,64 @@ const halfSection = css`
   }
 `;
 const center = css`
- justify-content: center;
- align-items: center;
+  justify-content: center;
+  align-items: center;
 `;
 const centerTop = css`
- justify-content: flex-start;
- align-items: center;
+  justify-content: flex-start;
+  align-items: center;
 `;
 const centerBottom = css`
- justify-content: flex-end;
- align-items: center;
+  justify-content: flex-end;
+  align-items: center;
 `;
 const leftTop = css`
- justify-content: flex-start;
- align-items: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 const leftCenter = css`
- justify-content: center;
- align-items: flex-start;
+  justify-content: center;
+  align-items: flex-start;
 `;
 const leftBottom = css`
- justify-content: flex-end;
- align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-start;
 `;
 const rightTop = css`
- justify-content: flex-start;
- align-items: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 const rightCenter = css`
- justify-content: center;
- align-items: flex-end;
+  justify-content: center;
+  align-items: flex-end;
 `;
 const rightBottom = css`
- justify-content: flex-end;
- align-items: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
 
-
 interface IProps {
-  image?: string;
+  image: string;
   align?: string;
   halfSection?: boolean;
-  justify?: string;
+  center?: boolean;
+  centerTop?: boolean;
+  centerBottom?: boolean;
+  leftCenter?: boolean;
+  leftTop?: boolean;
+  leftBottom?: boolean;
+  rightCenter?: boolean;
+  rightTop?: boolean;
+  rightBottom?: boolean;
   children?: React.ReactNode;
 }
 
-const LayersContainer = ( props: IProps ) => {
-  const { children, ...rest } = props;
+const LayersContainer = (props: IProps) => {
+  const { children, image } = props;
   return (
-    <PictureContainer {...rest} >
-      <SomePicture  {...rest} />
-      <OverlapedContainer  {...rest} >
-        {children}
-      </OverlapedContainer>
+    <PictureContainer {...props} >
+      <BackgroundImage image={image} />
+      <OverlapedContainer {...props}>{children}</OverlapedContainer>
     </PictureContainer>
   );
 };
@@ -72,27 +77,28 @@ const PictureContainer = styled.div<IProps>`
   flex-direction: column;
   align-items: center;
   ${(props) => props.halfSection && halfSection}
+  .background-image {
+    max-width: 100%;
+    height: auto;
+  }
 `;
-const SomePicture = styled.img.attrs<IProps>((props) => ({
-  src: `./images/${props.image}`,
-  alt: "layersContainer",
-}))`
-  max-width: 100%;
-  height: auto;
+const BackgroundImage = styled.img.attrs<IProps>( props => ({ src: `./images/${props.image}`, alt:"anyImage"})  )<IProps>`
+ max-width: 100%;
+ height: auto;
 `;
-const OverlapedContainer = styled.div`
+const OverlapedContainer = styled.div<IProps>`
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
-  ${ props => props.center && center };
-  ${ props => props.centerTop && centerTop };
-  ${ props => props.centerBottom && centerBottom };
-  ${ props => props.leftCenter && leftCenter };
-  ${ props => props.leftTop && leftTop };
-  ${ props => props.leftBottom && leftBottom };
-  ${ props => props.rightCenter && rightCenter };
-  ${ props => props.rightTop && rightTop };
-  ${ props => props.rightBottom && rightBottom };
+  ${(props) => props.center && center};
+  ${(props) => props.centerTop && centerTop};
+  ${(props) => props.centerBottom && centerBottom};
+  ${(props) => props.leftCenter && leftCenter};
+  ${(props) => props.leftTop && leftTop};
+  ${(props) => props.leftBottom && leftBottom};
+  ${(props) => props.rightCenter && rightCenter};
+  ${(props) => props.rightTop && rightTop};
+  ${(props) => props.rightBottom && rightBottom};
   flex-direction: column;
 `;

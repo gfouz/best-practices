@@ -109,7 +109,7 @@ function Curriculum() {
           }}
         />
         <DownloadSection>
-          <Subtitle upper bolder center mt color="#f1f1f1">
+          <Subtitle upper bolder center mt color="#222222">
             {idiom
               ? "Click button to download PDF file"
               : "Pulse el botón para descargar PDF"}
@@ -158,7 +158,7 @@ const SummaryContainer = styled.div`
 `;
 const SummaryHeader = styled(Header)``;
 const SummaryFooter = styled(Footer)`
-  color: #f1f1f1;
+  color: #222222;
   background-color: transparent;
 `;
 const SummaryMain = styled.div``;
@@ -190,8 +190,8 @@ const MainPicture = styled.img.attrs({
   height: auto;
   transition: 3s;
   &:hover {
-    transform: rotateY(180deg);
-    transition: 3s;
+    transform: scale(0.9);
+    transition: 1s;
   }
 `;
 const SpanishFlag = styled.img.attrs({
@@ -199,7 +199,7 @@ const SpanishFlag = styled.img.attrs({
   alt: "spainflag",
 })`
   max-width: 100%;
-  height: 30px;
+  height: 20px;
   margin: 0 5px;
 `;
 const UnitedKindomFlag = styled.img.attrs({
@@ -207,7 +207,7 @@ const UnitedKindomFlag = styled.img.attrs({
   alt: "ukflag",
 })`
   max-width: 100%;
-  height: 30px;
+  height: 20px;
   margin: 0 5px;
 `;
 const SummaryList = styled.ol`
@@ -225,7 +225,7 @@ const IdiomButton = styled.button`
   display: flex;
   align-items: center;
   width: 240px;
-  height: 50px;
+  height: 20px;
   padding: 10px;
   border: none;
   border-radius: 15px;
@@ -241,7 +241,7 @@ const IdiomButton = styled.button`
 const DownloadSection = styled.div`
   padding: 1em 0;
   margin: 2em 0 0 0;
-  background-color: #333333;
+
 `;
 const ButtonsContainer = styled.div`
   display: flex;
@@ -254,7 +254,7 @@ const DownloadButton = styled(OneButton)`
 `;
 const CancelButton = styled(OneButton)`
   margin: 0;
-  color: #f1f1f1;
+  color: #222222;
   background-color: #99999950;
 `;
 

@@ -26,7 +26,7 @@ export default ErrorWarning;
 const StyledErrorWarning = styled.div`
   width: 100%;
   max-width: 320px;
-  color: ${ props => props.color || "#444444"};
+  color: ${(props) => props.color || "#444444"};
   font-weight: bolder;
   font-size: 10px;
   text-transform: uppercase;
