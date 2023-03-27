@@ -22,13 +22,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@font-face {
-  font-family: "crowden";
-  src: local("crowden"), url("./fonts/crowden.ttf") format("truetype");
-  font-weight: bolder;
-  font-display: block;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -49,6 +42,7 @@ html {
 body {
   margin: 0 auto;
   height: 100%;
+  max-width: 1280px;
   min-height: 100vh;
 }
 

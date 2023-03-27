@@ -45,25 +45,22 @@ export const styledWomanVariant = {
   hidden: { opacity: 0 },
 };
 
-export const attached_1 = `Hello my name is Giovani, i began learning c++ and it was my
-first experience with Arduino boards. But it was a kind of
-hobby because later i began studying web development with a
-better purpose in mind. So that Node js was my pick, i have been
-studying back-end frameworks like Express, and related libraries to
-afford security and functionality, besides very useful concepts to
-reuse logic such as middlewares and i have had practical experience working with
-ORM or ODM to abstract databases such as Sequelize or Mongoose. I have
-designed and abstracted databases for a System that will afford PKI
-services in Cuba. `;
+export const attached_1 = `Hello my name is Giovani and i love knowledge or learning about new
+things and i like to spend time listening to English music or making
+things with the help of electronics. I also like to spend my time
+creating react components and mixing styled-components and framer-motion
+together to get the most advantages of both technologies and i 
+get all of these benefits while still writing the CSS we know and love, 
+just bound to individual components.
+`;
 
-export const attached_2 = `React is open-sourced by Facebook just a shy a few years ago, it’s
-already become the number one choice for JavaScript devs around the
-globe. And i have picked to work with this wonderful technology that
-brings so many advantages. However Technology changes, and it changes
-quickly. I am open-minded to new technologies in order to learn them
-and then also take advantage of them. I currently use react libraries
-such as react-hook-form, react-query, valtio, zustand,
-styled-components, framer-motion and the popular react-router-dom.`;
+export const attached_2 = `React has been my favorite choice over vue or any other framework,
+however technology changes, and it changes very quickly so that i am
+open-minded to new technologies in order to learn them and then also
+take advantage of them. I currently use react libraries such as
+react-hook-form, react-query, valtio, zustand, styled-components,
+framer-motion and the popular react-router-dom. But i have recently heard
+about Golang for server side and it will be a pleasure to learn it.`;
 
 export const attached_3 = `Tell me and I will forget, show me and I may
  remenber, involve me and I will understand`;
@@ -73,7 +70,7 @@ certificates for Segurmática which is the information security company in Cuba,
 I participated in the creation or abstraction of the database in this case relational 
 using PostgreSQL and Sequelize as ORM. As well as designed the Rest Api of routes and 
 controllers with Express and Node. I used React for client side rendering, this system has 
-great importance for the development of digital certification in Cuba.</p>
+importance for the development of digital certification in Cuba.</p>
 <p>(PKI) project: <a href="https://github.com/gfouz/pki-server-2023">
 https://github.com/gfouz/pki-server-2023</a></p>`;
 
@@ -87,3 +84,17 @@ reutilizar lógica como middlewares y he tenido experiencia trabajando con
 ORM u ODM para bases de datos abstractas como Sequelize o Mongoose. Tengo
 bases de datos diseñadas y resumidas para un sistema que permitirá PKI
 servicios en Cuba. `;
+
+export const about_react = `Being a part of the JavaScript language, 
+using React spawns lots of advantages. Products built with React are 
+simple to scale, a single language used on the server/client/mobile 
+side of things grants outstanding productivity, there are workflow 
+patterns for convenient teamwork, UI code is readable and maintainable, 
+and more. World-leading companies have used React and other JS technologies 
+in some of the top market-defining products out there (Instagram, Reddit, 
+and Facebook being the most vivid examples).`;
+
+export const about_express = `Express lets you take away a lot of the complexities 
+of Node.js while adding helpful functions to a Node.js HTTP server.
+Instead of a large request handler function, Express allows us to handle requests 
+by writing many small modular and maintainable functions.`;

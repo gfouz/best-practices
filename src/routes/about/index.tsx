@@ -12,7 +12,6 @@ import { Headline } from "components/Headline";
 import OnScrollMotion from "components/OnScrollMotion";
 import MotionOnScroll from "components/MotionOnScroll";
 import LayersContainer from "components/LayersContainer";
-import { Subtitle } from "components/FramerMotions";
 import { AnimatedContainer, AnimatedButton } from "components/FramerMotions";
 
 import GitAlt from "icons/GitAlt";
@@ -21,14 +20,15 @@ import Youtube from "icons/Youtube";
 
 import { Routes } from "../layout/Routes";
 import { TitleProps, fetchPdf } from "./constant";
-import useMediaQuery from '../../hooks/useMediaQuery';
-import {  reactVariant, styledWomanVariant } from "./constant";
-import { attached_1, attached_2, experience } from "./constant";
+//import useMediaQuery from '../../hooks/useMediaQuery';
+import {  reactVariant } from "./constant";
+import { attached_1, attached_2, experience, about_react, about_express } from "./constant";
 
 
 export default function Homepage() {
 
-  const isMobile = useMediaQuery('(max-width: 450px)');
+  //const isMobile = useMediaQuery('(max-width: 450px)');
+
   const snap2 = useSnapshot(switcher);
   const { st, reverse } = snap2;
 
@@ -46,19 +46,13 @@ export default function Homepage() {
       </AboutHeader>
 
       <AboutMain>
-        <LayersContainer image="colored.jpg" centerBottom >
+        <LayersContainer image="fadedgirl.jpg" centerBottom >
         </LayersContainer>
         <SecondaryPictureContainer>
           <AbsoluteContainer>
             <MotionOnScroll variants={reactVariant} column>
               <LightTitle>React JS</LightTitle>
-              <LightParagraph>
-                I worked in the first phase of a system to generate digital
-                certificates for Segurmática which is the information security
-                company in Cuba. I participated in the creation or abstraction
-                of the database in this case relational using PostgreSQL and
-                Sequelize as ORM.
-              </LightParagraph>
+              <LightParagraph dangerouslySetInnerHTML={{ __html: about_react }}></LightParagraph>
             </MotionOnScroll>
           </AbsoluteContainer>
           <SecondaryPicture />
@@ -67,13 +61,7 @@ export default function Homepage() {
           <AbsoluteContainer>
             <OnScrollMotion>
               <LightTitle>Express JS</LightTitle>
-              <LightParagraph>
-                I worked in the first phase of a system to generate digital
-                certificates for Segurmática which is the information security
-                company in Cuba. I participated in the creation or abstraction
-                of the database in this case relational using PostgreSQL and
-                Sequelize as ORM.
-              </LightParagraph>
+              <LightParagraph dangerouslySetInnerHTML={{ __html: about_express }}></LightParagraph>
             </OnScrollMotion>
           </AbsoluteContainer>
           <TechnologiesPicture />
@@ -89,7 +77,6 @@ export default function Homepage() {
               animate={{ opacity: 1 }}
               whileHover={{
                 color: "#f1f1f1",
-                border: "1px solid #64003f",
                 backgroundColor: "#fc00a4",
                 transition: { duration: 0.2 },
               }}
@@ -186,22 +173,10 @@ const AboutMain = styled.main`
   align-items: center;
 `;
 
-const MainSubtitle = styled(Subtitle)`
-  position: relative;
-  bottom: 0.7em;
-  color: #f1f1f1;
-  font-family: insomnia;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  @media (min-width: 600px) {
-    font-size: 3rem;
-  }
-`;
-
 const LightTitle = styled.h1<TitleProps>`
   position: relative;
   color: ${(props) => props.color || "#cccccc"};
-  font-family: insomnia;
+  font-family: signika;
   font-size: 1.3em;
   letter-spacing: 5px;
   bottom: 0.2em;
@@ -213,7 +188,7 @@ const LightTitle = styled.h1<TitleProps>`
 const DownloadButton = styled(AnimatedButton)`
   color: #222222;
   width: 120px;
-  height: 40px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,6 +200,7 @@ const DownloadButton = styled(AnimatedButton)`
   outline: none;
   z-index: 10;
   background-color: #f1f1f1;
+  box-shadow: 1px 1px 10px #000000;
 `;
 const AnimatedBox = styled(AnimatedContainer)`
   display: flex;

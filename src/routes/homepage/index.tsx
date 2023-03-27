@@ -2,7 +2,6 @@
 import styled from "styled-components";
 
 import { Footer } from "components/Footer";
-import ContactForm from 'components/ContactForm';
 import LayersContainer from "components/LayersContainer";
 import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
 

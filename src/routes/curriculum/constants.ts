@@ -1,15 +1,13 @@
-export const overview: string = `Web Developer specializing in front end development.
+export const overview: string = `Web Developer focused on React technologies.
 <p>Experienced with all stages of the
-development cycle for dynamic web projects. Versed in
+development cycle for dynamic web projects. Knowledge on
 programming languages such as HTML5, CSS, SCSS, JavaScript, TypeScript. </p>
 <p> <a href="https://github.com/gfouz">Projects: https://github.com/gfouz</a> </p>
-<p><a href="https://youtube.com/@giovanifouz5033">YouTube: https://youtube.com/@giovanifouz5033</a></p>
 <p><a href="https://gfouz.github.io/next-blog-2023">Blog: https://gfouz.github.io/next-blog-2023</a></p>  `;
 
-export const resumen: string = `<p>Desarrollador web enfocado en desarrollo front end.</p>
+export const resumen: string = `<p>Desarrollador web enfocado en React y su ecosistema.</p>
 <p>Con experiencia en lenguajes de programación tales como HTML5, CSS, SCSS, JavaScript y Typescript.</p>
 <p> <a href="https://github.com/gfouz">Proyectos: https://github.com/gfouz</a> </p>
-<p><a href="https://youtube.com/@giovanifouz5033">YouTube: https://youtube.com/@giovanifouz5033</a></p>
 <p><a href="https://gfouz.github.io/next-blog-2023">Blog: https://gfouz.github.io/next-blog-2023</a></p> 
 `;
 export const standards: string[] = [
@@ -77,3 +75,5 @@ export function fetchPdf() {
     });
   });
 }
+
+//<p><a href="https://youtube.com/@giovanifouz5033">YouTube: https://youtube.com/@giovanifouz5033</a></p>
