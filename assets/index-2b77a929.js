@@ -1,16 +1,18 @@
-import{h as i,a as r,F as s,j as o,s as t}from"./index.90bcf35c.js";import{T as a}from"./index.esm.0da53953.js";function u(){const e=i();function n(){e(-1)}return r(s,{children:[o(a,{label:"Close",children:o(d,{className:"backwards",onClick:n,children:"X"})}),o(l,{children:o(c,{})})]})}const l=t.div`
+import{f as r,j as e,F as s,a as t,s as o}from"./index-36e20e6d.js";function h(){const n=r();function i(){n(-1)}return e(s,{children:[t(d,{className:"backwards",onClick:i,children:"X"}),e(a,{children:[t(f,{}),t(c,{children:"Page is not found"})]})]})}const a=o.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #23074a;
-`,c=t.img.attrs({src:"./images/notfound.jpg",alt:"logo"})`
+`,c=o.h1`
+  color: #ffffff;
+`,f=o.img.attrs({src:"./images/notfound.jpg",alt:"logo"})`
   width: 400px;
   height: 400px;
   border-radius: 50%;
   object-fit: fill;
-`,d=t.button`
+`,d=o.button`
   position: fixed;
   top: 9px;
   right: 1em;
@@ -30,4 +32,4 @@ import{h as i,a as r,F as s,j as o,s as t}from"./index.90bcf35c.js";import{T as 
     color: white;
     background-color: red;
   }
-`;export{u as default};
+`;export{h as default};
