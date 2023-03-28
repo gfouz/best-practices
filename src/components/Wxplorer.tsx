@@ -23,8 +23,8 @@ export function Wxplorer(props: ISvgProps) {
   return (
     <>
       <svg 
-        width={ width || '170'}
-        height={ height || '170' }
+        width={ width || '90'}
+        height={ height || '90' }
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 512 512"
         >

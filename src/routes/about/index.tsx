@@ -40,13 +40,13 @@ export default function Homepage() {
 
   return (
     <AboutContainer>
-      <AboutHeader bg="#1b1f22" color="#ffffff">
+      <AboutHeader bg="#07052c" color="#ffffff">
         gfouz-{new Date().getFullYear()}
         <Button st={st} reverse={reverse} />
       </AboutHeader>
 
       <AboutMain>
-        <LayersContainer image="fadedgirl.jpg" centerBottom >
+        <LayersContainer image="css.jpg" centerBottom >
         </LayersContainer>
         <SecondaryPictureContainer>
           <AbsoluteContainer>
@@ -130,7 +130,7 @@ export default function Homepage() {
         </RemoteLinks>
       </Aside>
       <Sidebar options={Routes} />
-      <Footer bg="#1b1f22" color="#c2c5aa">
+      <Footer bg="#3a1040" color="#c2c5aa">
         Portfolio &copy; {new Date().getFullYear()}
       </Footer>
     </AboutContainer>

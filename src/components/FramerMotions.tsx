@@ -17,6 +17,7 @@ export const Subtitle = styled(motion.h1)<IHeadings>`
   text-transform: ${(props) => props.uppercase && "uppercase"};
 `;
 export const Paragraph = styled(motion.p)``;
+export const FramerMotionContainer = styled(motion.div)``;
 export const AnimatedContainer = styled(motion.div)``;
 export const AnimatedButton = styled(motion.button)`
   cursor: pointer;

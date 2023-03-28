@@ -6,7 +6,7 @@ import LayersContainer from "components/LayersContainer";
 import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
 
 import MotionOnScroll from "components/MotionOnScroll";
-import { Subtitle, Paragraph  } from "components/FramerMotions";
+import { Subtitle, Paragraph, FramerMotionContainer  } from "components/FramerMotions";
 
 import Wxplorer from 'components/Wxplorer';
 import SpyGlass from 'icons/SpyGlass';
@@ -24,7 +24,7 @@ import {
 
 function Homepage() {
   
-  const isMobile = useMediaQuery('(max-width: 700px)');
+  const isTablet = useMediaQuery('(max-width: 700px)');
   return (
     <HomepageContainer>
       <LayersContainer image="redplanet.jpg" center >
@@ -32,17 +32,17 @@ function Homepage() {
         <Wxplorer 
           fill='#c4b7b4' 
           strokeColor='#c4b7b4' 
-          width={ isMobile ? '100' : undefined }
-          height={ isMobile ? '100' : undefined }
+          width={ isTablet ? '60' : undefined }
+          height={ isTablet ? '60' : undefined }
           /> 
-         <MainTitle
+         <MainTitleContainer
            variants={mainTitleVariants} 
            initial='initial'
            animate='animate'
           >
             
-          fouzJs
-         </MainTitle>
+          <MainTitle  />
+         </MainTitleContainer>
   
     
       </LayersContainer>
@@ -117,15 +117,12 @@ const AutoNavbar = styled.div`
   display: flex;
   align-items: center;
   background-color: #14191f;
+  background-color: #0a0501;
   justify-content: space-evenly;
 `;
 const Navbar = styled(SimpleNavbar)``;
 
-const MainTitle = styled(Subtitle)`
-  color: #c4b7b4;
-  font-family: iron wall;
-  font-size: 8vw;
-`;
+
 
 const PrimaryArticle = styled.article`
   display: flex;
@@ -176,7 +173,18 @@ const PictureContainer = styled.div`
     width: 50%;
   }
 `;
+const MainTitleContainer = styled(FramerMotionContainer)`
+ 
+`;
+const MainTitle = styled.img.attrs({
+  src: "./images/fouzJs.png",
+  alt: "maintitle",
+})`
+  width: 50%;
+  height: auto;
+  
 
+`;
 
 const PrimaryPicture = styled.img.attrs({
   src: "./images/freelancer.jpg",
@@ -214,4 +222,13 @@ const SmallText = styled.span`
   @media (min-width: 500px) {
     font-size: 5em;
   }
-`;*/
+`;
+const MainTitle = styled(Subtitle)`
+  color: #c4b7b4;
+  font-family: iron wall;
+  font-size: 8vw;
+`;
+
+*/
+
+//https://gfouz.github.io/best-practices/

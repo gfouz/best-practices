@@ -56,7 +56,7 @@ export const finalVariant = {
   hidden: { opacity: 0 },
 };
 export const attached_1 = `I am web developer focused on React Js and the most recently
-technologies related to this library such as framer-motion,
+technologies related to this library such as NextJs, framer-motion,
 styled-components, chakra ui, zustand, valtio, react-router-dom,
 react-hook-forms, react-query and wonderful libraries made specially
 for react by its own creators.
