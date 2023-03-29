@@ -1,4 +1,4 @@
-import{C as a,j as I,a as w,s as y,r as m}from"./index-36e20e6d.js";import{b as T,s as A,c as M,u as O,d as V,m as L}from"./FramerMotions-63ea8490.js";const _=a`
+import{C as a,j as I,a as w,s as y,r as m}from"./index-1626cff6.js";import{b as T,s as A,c as M,u as O,d as V,m as L}from"./FramerMotions-18d1b54a.js";const _=a`
   @media (min-width: 750px) {
     width: 50%;
   }

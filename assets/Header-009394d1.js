@@ -1,4 +1,4 @@
-import{s as r}from"./index-36e20e6d.js";const a=r.header`
+import{s as r}from"./index-1626cff6.js";const a=r.header`
   grid-area: header;
   width: 100%;
   padding: 1em;

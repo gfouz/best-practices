@@ -1,4 +1,4 @@
-import{s as e}from"./index-36e20e6d.js";const t=e.footer`
+import{s as e}from"./index-1626cff6.js";const t=e.footer`
   grid-area: footer;
   padding: 1em;
   display: flex;
