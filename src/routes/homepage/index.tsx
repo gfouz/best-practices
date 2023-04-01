@@ -6,7 +6,7 @@ import LayersContainer from "components/LayersContainer";
 import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
 
 import MotionOnScroll from "components/MotionOnScroll";
-import { Subtitle, Paragraph, FramerMotionContainer  } from "components/FramerMotions";
+import { Paragraph, FramerMotionContainer  } from "components/FramerMotions";
 
 import Wxplorer from 'components/Wxplorer';
 import SpyGlass from 'icons/SpyGlass';
@@ -43,8 +43,6 @@ function Homepage() {
             
           <MainTitle  />
          </MainTitleContainer>
-  
-    
       </LayersContainer>
       <MotionOnScroll variants={navbarVariant}>
         <AutoNavbar>
@@ -169,6 +167,7 @@ const SecondParagraph = styled(FirstParagraph)``;
 const FinalParagraph = styled(FirstParagraph)``;
 const PictureContainer = styled.div`
   width: 100%;
+  overflow: hidden;
   @media (min-width: 750px) {
     width: 50%;
   }
@@ -177,13 +176,12 @@ const MainTitleContainer = styled(FramerMotionContainer)`
  
 `;
 const MainTitle = styled.img.attrs({
-  src: "./images/fouzJs.png",
+  src: "./images/fouz.png",
   alt: "maintitle",
 })`
-  width: 50%;
+  width: 45%;
   height: auto;
-  
-
+  margin: 1em 0;
 `;
 
 const PrimaryPicture = styled.img.attrs({
@@ -192,6 +190,10 @@ const PrimaryPicture = styled.img.attrs({
 })`
   max-width: 100%;
   height: auto;
+  transition: transform 200ms ease-in;
+  &:hover{
+  transform: scale(1.2);
+ }
 `;
 
 const NodeJsLogo = styled.img.attrs({
@@ -202,6 +204,7 @@ const NodeJsLogo = styled.img.attrs({
   height: auto;
   position: relative;
   bottom: 10px;
+  z-index: 3;
 `;
 
 const HomepageFooter = styled(Footer)`

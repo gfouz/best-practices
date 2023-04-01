@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSnapshot } from "valtio";
+import { useScroll, useMotionValueEvent } from 'framer-motion';
 
 import { switcher } from "components/store";
 import { Header } from "components/Header";
@@ -19,16 +20,24 @@ import Youtube from "icons/Youtube";
 //import NodeJs from "icons/NodeJs";
 
 import { Routes } from "../layout/Routes";
-import { TitleProps, fetchPdf } from "./constant";
-//import useMediaQuery from '../../hooks/useMediaQuery';
+import { fetchPdf } from "./constant";
+//import useMediaQuery from 'hooks/useMediaQuery';
 import {  reactVariant } from "./constant";
 import { attached_1, attached_2, experience, about_react, about_express } from "./constant";
 
 
-export default function Homepage() {
+export default function About() {
 
   //const isMobile = useMediaQuery('(max-width: 450px)');
+  const[position, setPosition]= useState(0);
+  const [colors, setColors]= useState('red');
+  const { scrollY } = useScroll();
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+            setPosition(latest)
+            console.log("Page scroll: ", latest)
+      })
+  
   const snap2 = useSnapshot(switcher);
   const { st, reverse } = snap2;
 
@@ -37,34 +46,35 @@ export default function Homepage() {
   const handleClick = () => {
     fetchPdf();
   };
-
+  useEffect(()=>{
+    position < 600 && setColors("red");
+    position > 600 && setColors("blue");
+    position > 700 && setColors("black");
+    position > 800 && setColors("yellow");
+    position > 900 && setColors("green");
+    position > 1000 && setColors("gradient");
+  }, [position]);
   return (
     <AboutContainer>
-      <AboutHeader bg="#07052c" color="#ffffff">
+      <AboutHeader bg="#232323" color="#ffffff">
         gfouz-{new Date().getFullYear()}
         <Button st={st} reverse={reverse} />
       </AboutHeader>
 
       <AboutMain>
-        <LayersContainer image="css.jpg" centerBottom >
-        </LayersContainer>
+        <LayersContainer image="goldfish.jpg" ></LayersContainer>
         <SecondaryPictureContainer>
-          <AbsoluteContainer>
-            <MotionOnScroll variants={reactVariant} column>
-              <LightTitle>React JS</LightTitle>
-              <LightParagraph dangerouslySetInnerHTML={{ __html: about_react }}></LightParagraph>
-            </MotionOnScroll>
-          </AbsoluteContainer>
           <SecondaryPicture />
-        </SecondaryPictureContainer>
-        <SecondaryPictureContainer>
-          <AbsoluteContainer>
+          <SecondaryArticle>
+            <MotionOnScroll variants={reactVariant} column>
+              <PrimaryTitle>React JS</PrimaryTitle>
+              <PrimaryParagraph dangerouslySetInnerHTML={{ __html: about_react }}></PrimaryParagraph>
+            </MotionOnScroll>
             <OnScrollMotion>
-              <LightTitle>Express JS</LightTitle>
-              <LightParagraph dangerouslySetInnerHTML={{ __html: about_express }}></LightParagraph>
+              <SecondaryTitle>Express JS</SecondaryTitle>
+              <SecondaryParagraph dangerouslySetInnerHTML={{ __html: about_express }}></SecondaryParagraph>
             </OnScrollMotion>
-          </AbsoluteContainer>
-          <TechnologiesPicture />
+          </SecondaryArticle>
         </SecondaryPictureContainer>
       </AboutMain>
 
@@ -76,8 +86,8 @@ export default function Homepage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               whileHover={{
-                color: "#f1f1f1",
-                backgroundColor: "#fc00a4",
+                color: "#222222",
+                backgroundColor: "#fff000",
                 transition: { duration: 0.2 },
               }}
               onClick={handleClick}
@@ -128,9 +138,11 @@ export default function Homepage() {
             <GitAlt fontSize="30px" color="#222222" />
           </GithubLink>
         </RemoteLinks>
+        <Sticky className={colors}><h1>{ position }</h1></Sticky>
+
       </Aside>
       <Sidebar options={Routes} />
-      <Footer bg="#3a1040" color="#c2c5aa">
+      <Footer bg="#232323" color="#c2c5aa">
         Portfolio &copy; {new Date().getFullYear()}
       </Footer>
     </AboutContainer>
@@ -162,6 +174,25 @@ const AboutContainer = styled.div`
         "footer  footer  footer";
     }
   }
+  .red {
+    background-image: linear-gradient(90deg, #200122 0%, #6f0000 100%);
+  }
+  .blue {
+    background-image: linear-gradient(90deg, #20002c 0%, #cbb4d4 100%);
+  }
+  .black {
+    background-image: linear-gradient(90deg, #304352 0%, #d7d2cc 100%);
+  }
+  .yellow {
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #ba8b02 0%, #181818 100%);
+  }
+  .green {
+    background-image: linear-gradient(90deg, #34e89e 0%, #0f3443 100%);
+  }
+  .gradient {
+    background-image: linear-gradient(90deg, #000046 0%, #1cb5e0 100%);
+  }
 `;
 const AboutHeader = styled( Header )`
   padding: 1.3em;
@@ -173,10 +204,10 @@ const AboutMain = styled.main`
   align-items: center;
 `;
 
-const LightTitle = styled.h1<TitleProps>`
+const PrimaryTitle = styled.h1`
   position: relative;
-  color: ${(props) => props.color || "#cccccc"};
-  font-family: signika;
+  color: #444444;
+  font-family: calibri;
   font-size: 1.3em;
   letter-spacing: 5px;
   bottom: 0.2em;
@@ -184,7 +215,20 @@ const LightTitle = styled.h1<TitleProps>`
     font-size: 1.5em;
   }
 `;
-
+const SecondaryTitle = styled(PrimaryTitle)`
+  color: #ffffff;
+`;
+const PrimaryParagraph = styled.p`
+  color: #444444;
+  font-weight: 550;
+  max-width: 600px;
+  text-align: justify;
+  font-family: calibri;
+  letter-spacing: 1.5px; 
+`;
+const SecondaryParagraph = styled(PrimaryParagraph)`
+  color: #f1f1f1;
+`;
 const DownloadButton = styled(AnimatedButton)`
   color: #222222;
   width: 120px;
@@ -225,18 +269,19 @@ const PictureContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const AbsoluteContainer = styled.div`
+const AbsoluteContainer = styled.article`
   position: absolute;
-  padding: 1em;
+  padding: 0 1em;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  align-items: center;
   flex-direction: column;
 `;
-
+const SecondaryArticle = styled(AbsoluteContainer)`
+  justify-content: space-evenly;
+`;
 const SecondaryPictureContainer = styled.div`
   position: relative;
   width: 100%;
@@ -245,21 +290,21 @@ const SecondaryPictureContainer = styled.div`
 `;
 
 const SecondaryPicture = styled.img.attrs({
-  src: "./images/abstract.jpg",
+  src: "./images/grass.jpg",
   alt: "forReact",
 })`
   max-width: 100%;
   height: auto;
 `;
-const LightParagraph = styled.p`
-  color: #cccccc;
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 600px;
-  text-align: justify;
+const TechnologiesPicture = styled.img.attrs({
+  src: "./images/greeny.jpg",
+  alt: "forExpress",
+})`
+  max-width: 100%;
+  height: auto;
 `;
 const SidebarPicture = styled.img.attrs({
-  src: "./images/sidebar3.jpg",
+  src: "./images/threecolors.jpg",
   alt: "laptop",
 })`
   max-width: 100%;
@@ -274,13 +319,7 @@ const SidebarAvatar = styled.img.attrs({
   float: left;
   margin: -5px 5px;
 `;
-const TechnologiesPicture = styled.img.attrs({
-  src: "./images/abstract.jpg",
-  alt: "forExpress",
-})`
-  max-width: 100%;
-  height: auto;
-`;
+
 const ProfileCard = styled.div`
   text-align: left;
   color: #555555;
@@ -319,6 +358,17 @@ const GithubLink = styled.a.attrs({ href: "https://github.com/gfouz" })`
   color: #444444;
   font-weight: bolder;
 `;
+const Sticky = styled.div`
+  position: sticky;
+  top:600px;
+  width: 150px;
+  height: 60px;
+  line-height: 60px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin: 1em 0;
+`;
+
 
 // git config user.name gfouz
 // git config user.email gfouz1975@gmail.com
@@ -334,4 +384,9 @@ const pathVariants = {
   visible: { transition: { duration: 3 }, pathLength: 1 },
   hidden: { pathLength: 0 },
 }
+c3b59b
+fef7b8
+0F4312
+758793
 */
+

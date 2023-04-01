@@ -9,10 +9,6 @@ export const drawerProps: React.CSSProperties = {
   backgroundSize: "70px",
 };
 
-export interface TitleProps {
-  color?: string;
-}
-
 export function fetchPdf() {
   fetch("fouzsummary.pdf").then((response) => {
     response.blob().then((blob) => {
@@ -59,8 +55,8 @@ however technology changes, and it changes very quickly so that i am
 open-minded to new technologies in order to learn them and then also
 take advantage of them. I currently use react libraries such as
 react-hook-form, react-query, valtio, zustand, styled-components,
-framer-motion and the popular react-router-dom. But i have recently heard
-about Golang for server side and it will be a pleasure to learn it.`;
+framer-motion, chakra ui and the popular react-router-dom. But i have recently heard
+about Golang for server side and it will be a pleasure to learn it too.`;
 
 export const attached_3 = `Tell me and I will forget, show me and I may
  remenber, involve me and I will understand`;
@@ -87,12 +83,9 @@ servicios en Cuba. `;
 
 export const about_react = `Being a part of the JavaScript language, 
 using React spawns lots of advantages. Products built with React are 
-simple to scale, a single language used on the server/client/mobile 
-side of things grants outstanding productivity, there are workflow 
+simple to scale and grants outstanding productivity, there are workflow 
 patterns for convenient teamwork, UI code is readable and maintainable, 
-and more. World-leading companies have used React and other JS technologies 
-in some of the top market-defining products out there (Instagram, Reddit, 
-and Facebook being the most vivid examples).`;
+and more. World-leading companies have used React and other JS technologies.`;
 
 export const about_express = `Express lets you take away a lot of the complexities 
 of Node.js while adding helpful functions to a Node.js HTTP server.

@@ -14,6 +14,7 @@ export default defineConfig({
       'com': path.resolve(__dirname, 'src/routes/common/'),
       'components': path.resolve(__dirname, 'src/components/'),
       'icons': path.resolve(__dirname, 'src/routes/icons/'),
+      'hooks': path.resolve(__dirname, 'src/hooks/'),
     },
   },
 });

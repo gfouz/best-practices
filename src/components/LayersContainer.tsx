@@ -1,5 +1,13 @@
 import styled, { css } from "styled-components";
 
+const zoom = css`
+  transition: transform 200ms ease-in;
+  &:hover{
+  transform: scale(1.2);
+ }
+ z-index:10;
+`;
+
 const halfSection = css`
   @media (min-width: 750px) {
     width: 50%;
@@ -44,6 +52,7 @@ const rightBottom = css`
 
 interface IProps {
   image: string;
+  zoom?: boolean;
   align?: string;
   halfSection?: boolean;
   center?: boolean;
@@ -59,10 +68,10 @@ interface IProps {
 }
 
 const LayersContainer = (props: IProps) => {
-  const { children, image } = props;
+  const { children, image, zoom } = props;
   return (
     <PictureContainer {...props} >
-      <BackgroundImage image={image} />
+      <BackgroundImage image={image} zoom={zoom}/>
       <OverlapedContainer {...props}>{children}</OverlapedContainer>
     </PictureContainer>
   );
@@ -76,6 +85,7 @@ const PictureContainer = styled.div<IProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   ${(props) => props.halfSection && halfSection}
   .background-image {
     max-width: 100%;
@@ -85,6 +95,7 @@ const PictureContainer = styled.div<IProps>`
 const BackgroundImage = styled.img.attrs<IProps>( props => ({ src: `./images/${props.image}`, alt:"anyImage"})  )<IProps>`
  max-width: 100%;
  height: auto;
+ ${ (props)=> props.zoom && zoom };
 `;
 const OverlapedContainer = styled.div<IProps>`
   position: absolute;
