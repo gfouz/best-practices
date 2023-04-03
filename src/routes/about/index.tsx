@@ -296,13 +296,6 @@ const SecondaryPicture = styled.img.attrs({
   max-width: 100%;
   height: auto;
 `;
-const TechnologiesPicture = styled.img.attrs({
-  src: "./images/greeny.jpg",
-  alt: "forExpress",
-})`
-  max-width: 100%;
-  height: auto;
-`;
 const SidebarPicture = styled.img.attrs({
   src: "./images/threecolors.jpg",
   alt: "laptop",
