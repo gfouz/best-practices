@@ -1,4 +1,4 @@
-import{f as r,j as e,F as s,a as t,s as o}from"./index-1626cff6.js";function h(){const n=r();function i(){n(-1)}return e(s,{children:[t(d,{className:"backwards",onClick:i,children:"X"}),e(a,{children:[t(f,{}),t(c,{children:"Page is not found"})]})]})}const a=o.div`
+import{f as r,j as e,F as s,a as t,s as o}from"./index-2f6e367c.js";function h(){const n=r();function i(){n(-1)}return e(s,{children:[t(d,{className:"backwards",onClick:i,children:"X"}),e(a,{children:[t(f,{}),t(c,{children:"Page is not found"})]})]})}const a=o.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
