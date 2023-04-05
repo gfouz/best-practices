@@ -1,4 +1,4 @@
-import{s as e,j as a,F as g,a as t,L as d,r as n}from"./index-2f6e367c.js";import{F as x}from"./Footer-0dc47660.js";import{L as h,M as s}from"./MotionOnScroll-d1e6a6eb.js";import{m as z,P as k,F as M}from"./FramerMotions-19e020cc.js";const L=()=>a(g,{children:[t(m,{children:t(d,{to:"/about",children:"about"})}),t(m,{children:t(d,{to:"/contact",children:"contact"})}),t(m,{children:t(d,{to:"/curriculum",children:"curriculum"})})]}),S=e.ul`
+import{s as e,j as a,F as g,a as t,L as d,r as n}from"./index-bb6e9ed9.js";import{F as x}from"./Footer-8bc76369.js";import{L as h,M as s}from"./MotionOnScroll-8e312a35.js";import{m as z,P as k,F as M}from"./FramerMotions-18ed8c31.js";const L=()=>a(g,{children:[t(m,{children:t(d,{to:"/about",children:"about"})}),t(m,{children:t(d,{to:"/contact",children:"contact"})}),t(m,{children:t(d,{to:"/curriculum",children:"curriculum"})})]}),S=e.ul`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -89,7 +89,7 @@ certificates for Segurmática which is an information security company in Cuba.
   }
 `,q=e(M)`
  
-`,G=e.img.attrs({src:"./images/fouz.png",alt:"maintitle"})`
+`,G=e.img.attrs({src:"./images/fouz4.png",alt:"maintitle"})`
   width: 45%;
   height: auto;
   margin: 1em 0;
