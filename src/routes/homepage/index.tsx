@@ -176,7 +176,7 @@ const MainTitleContainer = styled(FramerMotionContainer)`
  
 `;
 const MainTitle = styled.img.attrs({
-  src: "./images/fouz.png",
+  src: "./images/fouz4.png",
   alt: "maintitle",
 })`
   width: 45%;

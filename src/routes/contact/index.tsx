@@ -137,7 +137,7 @@ const ContactContainer = styled.div`
   .normal {
     position: static;
   }
-  background-image:  url("./images/violet.jpg");
+  background-image:  url("./images/darkbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

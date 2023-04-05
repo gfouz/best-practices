@@ -86,8 +86,8 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               whileHover={{
-                color: "#222222",
-                backgroundColor: "#fff000",
+                color: "#ffffff",
+                backgroundColor: "#007272",
                 transition: { duration: 0.2 },
               }}
               onClick={handleClick}
@@ -159,7 +159,7 @@ const AboutContainer = styled.div`
   }
   display: grid;
   grid-template-areas:
-    "header "
+    "header"
     "main"
     "aside"
     "footer";
@@ -250,6 +250,9 @@ const AnimatedBox = styled(AnimatedContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 `;
 
 const Es6LiteralString = styled.p`
@@ -297,11 +300,12 @@ const SecondaryPicture = styled.img.attrs({
   height: auto;
 `;
 const SidebarPicture = styled.img.attrs({
-  src: "./images/threecolors.jpg",
+  src: "./images/greenblue.jpg",
   alt: "laptop",
 })`
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 const SidebarAvatar = styled.img.attrs({
   src: "./images/gfouz2.png",
@@ -367,6 +371,8 @@ const Sticky = styled.div`
 // git config user.email gfouz1975@gmail.com
 // git config user.password
 /*
+
+
 import { motion, useAnimation, Variants } from "framer-motion";
 
 const svgVariants = {
