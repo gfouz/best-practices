@@ -1,48 +1,36 @@
 //import { useState } from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Footer } from "components/Footer";
-import LayersContainer from "components/LayersContainer";
-import AllLinks, { SimpleNavbar } from "components/SimpleNavbar";
+import { Footer } from 'components/Footer';
+import LayersContainer from 'components/LayersContainer';
+import AllLinks, { SimpleNavbar } from 'components/SimpleNavbar';
 
-import MotionOnScroll from "components/MotionOnScroll";
-import { Paragraph, FramerMotionContainer  } from "components/FramerMotions";
+import MotionOnScroll from 'components/MotionOnScroll';
+import { Paragraph, FramerMotionContainer } from 'components/FramerMotions';
 
 import Wxplorer from 'components/Wxplorer';
 import SpyGlass from 'icons/SpyGlass';
 
 import useMediaQuery from './useMediaQuery';
 
-import { mainTitleVariants, finalVariant, navbarVariant } from "./constant";
-import { firstParagraphVariant, secondParagraphVariant } from "./constant";
-import {
-  attached_1,
-  attached_2,
-  attached_3,
-  nodeJsLogoVariant,
-} from "./constant";
+import { mainTitleVariants, finalVariant, navbarVariant } from './constant';
+import { firstParagraphVariant, secondParagraphVariant } from './constant';
+import { attached_1, attached_2, attached_3, nodeJsLogoVariant } from './constant';
 
 function Homepage() {
-  
   const isTablet = useMediaQuery('(max-width: 700px)');
   return (
     <HomepageContainer>
-      <LayersContainer image="redplanet.jpg" center >
-      
-        <Wxplorer 
-          fill='#c4b7b4' 
-          strokeColor='#c4b7b4' 
-          width={ isTablet ? '60' : undefined }
-          height={ isTablet ? '60' : undefined }
-          /> 
-         <MainTitleContainer
-           variants={mainTitleVariants} 
-           initial='initial'
-           animate='animate'
-          >
-            
-          <MainTitle  />
-         </MainTitleContainer>
+      <LayersContainer image='redplanet.jpg' center>
+        <Wxplorer
+          fill='#c4b7b4'
+          strokeColor='#c4b7b4'
+          width={isTablet ? '60' : undefined}
+          height={isTablet ? '60' : undefined}
+        />
+        <MainTitleContainer variants={mainTitleVariants} initial='initial' animate='animate'>
+          <MainTitle />
+        </MainTitleContainer>
       </LayersContainer>
       <MotionOnScroll variants={navbarVariant}>
         <AutoNavbar>
@@ -68,13 +56,13 @@ function Homepage() {
             <SecondParagraph dangerouslySetInnerHTML={{ __html: attached_2 }} />
           </MotionOnScroll>
         </ParagraphContainer>
-        <LayersContainer image="school.jpg" halfSection centerBottom>
+        <LayersContainer image='school.jpg' halfSection centerBottom>
           <MotionOnScroll variants={nodeJsLogoVariant}>
             <NodeJsLogo />
           </MotionOnScroll>
         </LayersContainer>
       </SecondaryArticle>
-      <LayersContainer image="coffeecup.png" center>
+      <LayersContainer image='coffeecup.png' center>
         <MotionOnScroll variants={finalVariant}>
           <ParagraphContainer>
             <FinalParagraph dangerouslySetInnerHTML={{ __html: attached_3 }}></FinalParagraph>
@@ -83,7 +71,7 @@ function Homepage() {
       </LayersContainer>
       <HomepageFooter>
         <SmallText>gfouz</SmallText>
-        {<SpyGlass fontSize="15px" color="#f2f2f2" />}
+        {<SpyGlass fontSize='15px' color='#f2f2f2' />}
         <SmallText>portfolio</SmallText>
         {new Date().getFullYear()}
       </HomepageFooter>
@@ -95,8 +83,8 @@ export default Homepage;
 
 const HomepageContainer = styled.div`
   @font-face {
-    font-family: "insomnia";
-    src: local("insomnia"), url("./fonts/insomnia.ttf") format("truetype");
+    font-family: 'insomnia';
+    src: local('insomnia'), url('./fonts/insomnia.ttf') format('truetype');
     font-weight: bolder;
     font-display: block;
   }
@@ -120,8 +108,6 @@ const AutoNavbar = styled.div`
 `;
 const Navbar = styled(SimpleNavbar)``;
 
-
-
 const PrimaryArticle = styled.article`
   display: flex;
   @media (max-width: 750px) {
@@ -134,7 +120,7 @@ const SecondaryArticle = styled(PrimaryArticle)`
   }
 `;
 const ParagraphContainer = styled.article.attrs({
-  className: "ParagraphContainer",
+  className: 'ParagraphContainer',
 })`
   display: flex;
   flex-direction: column;
@@ -172,12 +158,10 @@ const PictureContainer = styled.div`
     width: 50%;
   }
 `;
-const MainTitleContainer = styled(FramerMotionContainer)`
- 
-`;
+const MainTitleContainer = styled(FramerMotionContainer)``;
 const MainTitle = styled.img.attrs({
-  src: "./images/fouz4.png",
-  alt: "maintitle",
+  src: './images/fouz4.png',
+  alt: 'maintitle',
 })`
   width: 45%;
   height: auto;
@@ -185,20 +169,20 @@ const MainTitle = styled.img.attrs({
 `;
 
 const PrimaryPicture = styled.img.attrs({
-  src: "./images/freelancer.jpg",
-  alt: "Primary",
+  src: './images/freelancer.jpg',
+  alt: 'Primary',
 })`
   max-width: 100%;
   height: auto;
   transition: transform 200ms ease-in;
-  &:hover{
-  transform: scale(1.2);
- }
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 const NodeJsLogo = styled.img.attrs({
-  src: "./images/rednodejs.png",
-  alt: "NodeJs",
+  src: './images/rednodejs.png',
+  alt: 'NodeJs',
 })`
   width: 300px;
   height: auto;

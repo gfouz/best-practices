@@ -1,21 +1,20 @@
-import * as React from "react";
-
+import * as React from 'react';
 
 export const drawerProps: React.CSSProperties = {
-  height: "150px",
+  height: '150px',
   backgroundImage: `url('./images/aside.jpg')`,
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "70px",
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '70px',
 };
 
 export function fetchPdf() {
-  fetch("fouzsummary.pdf").then((response) => {
+  fetch('fouzsummary.pdf').then((response) => {
     response.blob().then((blob) => {
       const fileURL = window.URL.createObjectURL(blob);
-      let alink = document.createElement("a");
+      let alink = document.createElement('a');
       alink.href = fileURL;
-      alink.download = "fouzsummary.pdf";
+      alink.download = 'fouzsummary.pdf';
       alink.click();
     });
   });

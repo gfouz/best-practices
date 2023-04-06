@@ -53,9 +53,10 @@ body {
   cursor: pointer;
   animation: ;
   animation-fill-mode: forwards;
+  animation-direction: ;
 }
 
-/*
+/* 
 
 @font-face {
     font-family: 'signika';

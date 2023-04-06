@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 function Notfound() {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ function Notfound() {
   }
   return (
     <>
-      <NotFoundCloseButton className="backwards" onClick={handleClick}>
+      <NotFoundCloseButton className='backwards' onClick={handleClick}>
         X
       </NotFoundCloseButton>
       <NotfoundContainer>
@@ -32,8 +32,8 @@ const MainTitle = styled.h1`
   color: #ffffff;
 `;
 const NotFoundImage = styled.img.attrs({
-  src: "./images/notfound.jpg",
-  alt: "logo",
+  src: './images/notfound.jpg',
+  alt: 'logo',
 })`
   width: 400px;
   height: 400px;

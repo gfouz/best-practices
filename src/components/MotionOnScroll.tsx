@@ -1,8 +1,8 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { motion, useAnimation, Variants } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { motion, useAnimation, Variants } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const column = css`
   display: flex;
@@ -18,16 +18,15 @@ interface IProps {
   variants?: Variants | undefined;
 }
 
-
 const MotionOnScroll = ({ children, variants, width, column }: IProps) => {
   const control = useAnimation();
   const [ref, inView] = useInView();
 
   useEffect(() => {
     if (inView) {
-      control.start("visible");
+      control.start('visible');
     } else {
-      control.start("hidden");
+      control.start('hidden');
     }
   }, [control, inView]);
 
@@ -35,7 +34,7 @@ const MotionOnScroll = ({ children, variants, width, column }: IProps) => {
     <StyledBox
       ref={ref}
       variants={variants}
-      initial="hidden"
+      initial='hidden'
       animate={control}
       width={width}
       column={column}
@@ -47,7 +46,9 @@ const MotionOnScroll = ({ children, variants, width, column }: IProps) => {
 
 export default MotionOnScroll;
 
-const StyledBox = styled(motion.div).attrs({ className: "MotionOnScroll" })<IProps>`
+const StyledBox = styled(motion.div).attrs({
+  className: 'MotionOnScroll',
+})<IProps>`
   width: ${(props) => props.width};
   display: flex;
   justify-content: center;

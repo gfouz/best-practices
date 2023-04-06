@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 //const blogLink = "https://gfouz.github.io/next-blog-2023";
 
@@ -7,13 +7,13 @@ const AllLinks = () => {
   return (
     <>
       <ListItem>
-        <Link to="/about">about</Link>
+        <Link to='/about'>about</Link>
       </ListItem>
       <ListItem>
-        <Link to="/contact">contact</Link>
+        <Link to='/contact'>contact</Link>
       </ListItem>
       <ListItem>
-        <Link to="/curriculum">curriculum</Link>
+        <Link to='/curriculum'>curriculum</Link>
       </ListItem>
     </>
   );

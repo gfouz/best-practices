@@ -11,18 +11,18 @@ export const resumen: string = `<p>Desarrollador web enfocado en React y su ecos
 <p><a href="https://gfouz.github.io/next-blog-2023">Blog: https://gfouz.github.io/next-blog-2023</a></p> 
 `;
 export const standards: string[] = [
-  "Typescript.",
-  "BEM (Block element modifier) as css architecture.",
-  "Eslint for writing JavaScript and Typescript consistent code.",
-  "Prettier for source code formatting. ",
-  "Pruebas unitaria: react-testing-library, vitest.",
+  'Typescript.',
+  'BEM (Block element modifier) as css architecture.',
+  'Eslint for writing JavaScript and Typescript consistent code.',
+  'Prettier for source code formatting. ',
+  'Pruebas unitaria: react-testing-library, vitest.',
 ];
 export const normas: string[] = [
-  "Typescript",
-  "BEM como arquitectura de css.",
-  "Eslint para escribir código consistente.",
-  "Prettier para formatear código fuente.",
-  "Test driven development: react-testing-library, vitest.",
+  'Typescript',
+  'BEM como arquitectura de css.',
+  'Eslint para escribir código consistente.',
+  'Prettier para formatear código fuente.',
+  'Test driven development: react-testing-library, vitest.',
 ];
 export const experience: string = `Cuantico: Fullstack with Node Js.
 <p>Calle 253. Esq. 94, No. 9218. La Cumbre,San Miguel del Padrón, La Habana.</p> 
@@ -65,12 +65,12 @@ zustand, valtio, react-router-dom, y para css en js la popular styled-components
  and Sequelize to abstract databases.</p>`;
 
 export function fetchPdf() {
-  fetch("fouzsummary.pdf").then((response) => {
+  fetch('fouzsummary.pdf').then((response) => {
     response.blob().then((blob) => {
       const fileURL = window.URL.createObjectURL(blob);
-      let alink = document.createElement("a");
+      let alink = document.createElement('a');
       alink.href = fileURL;
-      alink.download = "fouzsummary.pdf";
+      alink.download = 'fouzsummary.pdf';
       alink.click();
     });
   });

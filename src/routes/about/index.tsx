@@ -1,43 +1,42 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useSnapshot } from "valtio";
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { useSnapshot } from 'valtio';
 import { useScroll, useMotionValueEvent } from 'framer-motion';
 
-import { switcher } from "components/store";
-import { Header } from "components/Header";
-import { Footer } from "components/Footer";
-import { Aside } from "components/Aside";
-import Sidebar from "components/Sidebar";
-import Button from "components/Button";
-import { Headline } from "components/Headline";
-import OnScrollMotion from "components/OnScrollMotion";
-import MotionOnScroll from "components/MotionOnScroll";
-import LayersContainer from "components/LayersContainer";
-import { AnimatedContainer, AnimatedButton } from "components/FramerMotions";
+import { switcher } from 'components/store';
+import { Header } from 'components/Header';
+import { Footer } from 'components/Footer';
+import { Aside } from 'components/Aside';
+import Sidebar from 'components/Sidebar';
+import Button from 'components/Button';
+import Cube3d from 'components/Cube3D';
+import { Headline } from 'components/Headline';
+import OnScrollMotion from 'components/OnScrollMotion';
+import MotionOnScroll from 'components/MotionOnScroll';
+import LayersContainer from 'components/LayersContainer';
+import { AnimatedContainer, AnimatedButton } from 'components/FramerMotions';
 
-import GitAlt from "icons/GitAlt";
-import Youtube from "icons/Youtube";
+import GitAlt from 'icons/GitAlt';
+import Youtube from 'icons/Youtube';
 //import NodeJs from "icons/NodeJs";
 
-import { Routes } from "../layout/Routes";
-import { fetchPdf } from "./constant";
+import { Routes } from '../layout/Routes';
+import { fetchPdf } from './constant';
 //import useMediaQuery from 'hooks/useMediaQuery';
-import {  reactVariant } from "./constant";
-import { attached_1, attached_2, experience, about_react, about_express } from "./constant";
-
+import { reactVariant } from './constant';
+import { attached_1, attached_2, experience, about_react, about_express } from './constant';
 
 export default function About() {
-
   //const isMobile = useMediaQuery('(max-width: 450px)');
-  const[position, setPosition]= useState(0);
-  const [colors, setColors]= useState('red');
+  const [position, setPosition] = useState(0);
+  const [degrees, setDegrees] = useState(0);
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-            setPosition(latest)
-            console.log("Page scroll: ", latest)
-      })
-  
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setPosition(latest);
+    console.log('Page scroll: ', latest);
+  });
+
   const snap2 = useSnapshot(switcher);
   const { st, reverse } = snap2;
 
@@ -46,39 +45,43 @@ export default function About() {
   const handleClick = () => {
     fetchPdf();
   };
-  useEffect(()=>{
-    position < 600 && setColors("red");
-    position > 600 && setColors("blue");
-    position > 700 && setColors("black");
-    position > 800 && setColors("yellow");
-    position > 900 && setColors("green");
-    position > 1000 && setColors("gradient");
+  useEffect(() => {
+    position < 600 && setDegrees(10);
+    position > 600 && setDegrees(60);
+    position > 700 && setDegrees(90);
+    position > 800 && setDegrees(120);
+    position > 900 && setDegrees(180);
+    position > 1000 && setDegrees(0);
   }, [position]);
   return (
     <AboutContainer>
-      <AboutHeader bg="#232323" color="#ffffff">
+      <AboutHeader bg='#232323' color='#ffffff'>
         gfouz-{new Date().getFullYear()}
         <Button st={st} reverse={reverse} />
       </AboutHeader>
 
       <AboutMain>
-        <LayersContainer image="goldfish.jpg" ></LayersContainer>
+        <LayersContainer image='goldfish.jpg'></LayersContainer>
         <SecondaryPictureContainer>
           <SecondaryPicture />
           <SecondaryArticle>
             <MotionOnScroll variants={reactVariant} column>
               <PrimaryTitle>React JS</PrimaryTitle>
-              <PrimaryParagraph dangerouslySetInnerHTML={{ __html: about_react }}></PrimaryParagraph>
+              <PrimaryParagraph
+                dangerouslySetInnerHTML={{ __html: about_react }}
+              ></PrimaryParagraph>
             </MotionOnScroll>
             <OnScrollMotion>
               <SecondaryTitle>Express JS</SecondaryTitle>
-              <SecondaryParagraph dangerouslySetInnerHTML={{ __html: about_express }}></SecondaryParagraph>
+              <SecondaryParagraph
+                dangerouslySetInnerHTML={{ __html: about_express }}
+              ></SecondaryParagraph>
             </OnScrollMotion>
           </SecondaryArticle>
         </SecondaryPictureContainer>
       </AboutMain>
 
-      <Aside bg="#efece7">
+      <Aside bg='#efece7'>
         <PictureContainer>
           <AbsoluteContainer>
             <DownloadButton
@@ -86,8 +89,8 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               whileHover={{
-                color: "#ffffff",
-                backgroundColor: "#007272",
+                color: '#ffffff',
+                backgroundColor: '#007272',
                 transition: { duration: 0.2 },
               }}
               onClick={handleClick}
@@ -98,7 +101,7 @@ export default function About() {
                 setShow(false);
               }}
             >
-              {show ? "download" : "curriculum"}
+              {show ? 'download' : 'curriculum'}
             </DownloadButton>
           </AbsoluteContainer>
           <AnimatedBox
@@ -131,18 +134,18 @@ export default function About() {
         <RemoteLinks>
           <YoutubeLink>
             YouTube Channel
-            <Youtube fontSize="30px" color="#c40550" />
+            <Youtube fontSize='30px' color='#c40550' />
           </YoutubeLink>
           <GithubLink>
             Github Projects
-            <GitAlt fontSize="30px" color="#222222" />
+            <GitAlt fontSize='30px' color='#222222' />
           </GithubLink>
         </RemoteLinks>
-        <Sticky className={colors}><h1>{ position }</h1></Sticky>
-
+          <Cube3d height='200px' degrees={ position }/>
       </Aside>
       <Sidebar options={Routes} />
-      <Footer bg="#232323" color="#c2c5aa">
+
+      <Footer bg='#232323' color='#c2c5aa'>
         Portfolio &copy; {new Date().getFullYear()}
       </Footer>
     </AboutContainer>
@@ -152,26 +155,26 @@ export default function About() {
 const AboutContainer = styled.div`
   background-color: #1b1f22;
   @font-face {
-    font-family: "insomnia";
-    src: local("insomnia"), url("./fonts/insomnia.ttf") format("truetype");
+    font-family: 'insomnia';
+    src: local('insomnia'), url('./fonts/insomnia.ttf') format('truetype');
     font-weight: bolder;
     font-display: block;
   }
   display: grid;
   grid-template-areas:
-    "header"
-    "main"
-    "aside"
-    "footer";
+    'header'
+    'main'
+    'aside'
+    'footer';
   grid-template-columns: 1fr;
 
   @media (min-width: 750px) {
     & {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
-        "header  header  header"
-        "main    main    aside"
-        "footer  footer  footer";
+        'header  header  header'
+        'main    main    aside'
+        'footer  footer  footer';
     }
   }
   .red {
@@ -194,7 +197,7 @@ const AboutContainer = styled.div`
     background-image: linear-gradient(90deg, #000046 0%, #1cb5e0 100%);
   }
 `;
-const AboutHeader = styled( Header )`
+const AboutHeader = styled(Header)`
   padding: 1.3em;
 `;
 const AboutMain = styled.main`
@@ -224,7 +227,7 @@ const PrimaryParagraph = styled.p`
   max-width: 600px;
   text-align: justify;
   font-family: calibri;
-  letter-spacing: 1.5px; 
+  letter-spacing: 1.5px;
 `;
 const SecondaryParagraph = styled(PrimaryParagraph)`
   color: #f1f1f1;
@@ -293,23 +296,23 @@ const SecondaryPictureContainer = styled.div`
 `;
 
 const SecondaryPicture = styled.img.attrs({
-  src: "./images/grass.jpg",
-  alt: "forReact",
+  src: './images/grass.jpg',
+  alt: 'forReact',
 })`
   max-width: 100%;
   height: auto;
 `;
 const SidebarPicture = styled.img.attrs({
-  src: "./images/greenblue.jpg",
-  alt: "laptop",
+  src: './images/greenblue.jpg',
+  alt: 'laptop',
 })`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 const SidebarAvatar = styled.img.attrs({
-  src: "./images/gfouz2.png",
-  alt: "gfouz",
+  src: './images/gfouz2.png',
+  alt: 'gfouz',
 })`
   max-width: 100%;
   height: auto;
@@ -338,7 +341,7 @@ const RemoteLinks = styled.div`
   background-color: #efece7;
 `;
 const YoutubeLink = styled.a.attrs({
-  href: "https://youtube.com/@giovanifouz5033",
+  href: 'https://youtube.com/@giovanifouz5033',
 })`
   margin: 0 1em;
   display: flex;
@@ -347,7 +350,7 @@ const YoutubeLink = styled.a.attrs({
   color: #444444;
   font-weight: bolder;
 `;
-const GithubLink = styled.a.attrs({ href: "https://github.com/gfouz" })`
+const GithubLink = styled.a.attrs({ href: 'https://github.com/gfouz' })`
   margin: 0 1em;
   display: flex;
   align-items: center;
@@ -357,7 +360,7 @@ const GithubLink = styled.a.attrs({ href: "https://github.com/gfouz" })`
 `;
 const Sticky = styled.div`
   position: sticky;
-  top:600px;
+  top: 400px;
   width: 150px;
   height: 60px;
   line-height: 60px;
@@ -365,7 +368,6 @@ const Sticky = styled.div`
   border-radius: 10px;
   margin: 1em 0;
 `;
-
 
 // git config user.name gfouz
 // git config user.email gfouz1975@gmail.com
@@ -388,4 +390,3 @@ fef7b8
 0F4312
 758793
 */
-
